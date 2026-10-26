@@ -70,7 +70,7 @@ render('kezelesek.html', 'Kezelések és kozmetikai csomagok', 'Belico, Mesotica
   wrap(intro(value(results, 'Cím'), '', value(results, 'Kicker')) + `<ul class="result-list">${value(results, 'Lista').split(' · ').map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`, 'surface') +
   wrap(`<div class="callout"><h2>${esc(value(guarantee,'Cím'))}</h2>${p(value(guarantee,'Szöveg'))}</div>`, 'olive') +
   wrap(intro(value(packages,'Cím'),value(packages,'Szöveg'),value(packages,'Kicker')) + `<div class="packages">${packageCards}</div>`) +
-  testimonials + processSection + contact);
+  processSection + testimonials + contact);
 
 // Rólunk: szakmai történet, értékek és szalonhangulat.
 const about = page('Rólunk');
