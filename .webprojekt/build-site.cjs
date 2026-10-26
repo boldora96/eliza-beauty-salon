@@ -38,7 +38,7 @@ const render = (filename, title, description, content) => {
   const activeHeader = header.replace(new RegExp(`href="${current.replace('.', '\\.')}"`, 'g'), `href="${current}" aria-current="page"`);
   fs.writeFileSync(filename, `<!doctype html>\n<html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>${esc(title)} | Eliza Beauty Salon</title><meta name="description" content="${esc(description)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>${fonts}<link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script></head><body data-typography="eliza"><a class="skip-link" href="#tartalom">Ugrás a tartalomhoz</a>${activeHeader}<main id="tartalom">${content}</main>${footer}</body></html>\n`);
 };
-let home = sections.join('\n').replace('id="kapcsolat"', 'id="idopont"');
+let home = sections.map((section, index) => index === 5 ? testimonials : section).join('\n').replace('id="kapcsolat"', 'id="idopont"');
 home = home.replace(/href="#kapcsolat"/g, 'href="#idopont"').replace('href="#kezelesek">Megnézem a kezeléseket', 'href="kezelesek.html">Megnézem a kezeléseket').replace('href="#idopont">Ismerkedjünk meg személyesen', 'href="rolunk.html">Ismerkedjünk meg személyesen');
 home = home.replace(/href="#idopont">Érdekel a kezelés/g, 'href="kezelesek.html#kezelesek">Érdekel a kezelés');
 render('index.html', 'Személyre szabott kozmetikai kezelések Budapesten', 'Személyre szabott bőrápolás, bőrfiatalító és anti-akné kezelések Sipos Elizával Budapesten. Ismerd meg a kezeléseket, és kérj időpontot.', home);
