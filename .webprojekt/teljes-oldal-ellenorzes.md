@@ -37,3 +37,9 @@ A jelenlegi öt generált oldal 1536, 768 és 375 px szélességen ellenőrizve.
 A Rólunk oldal korábbi évszámsorát, értéklistáját és két hangulatképét a felhasználó kérésére a Figma 38327:238, 38327:271 és 38204:1161 szakaszai váltották fel. Négy szakmai blokk, három statisztikakártya és hat eredeti Figma-kép került az oldalba, helyi WebP formátumban. A 14+, 1300+, 350+ adatok a felhasználó tervéből származnak. Asztali geometria: 404 × 404 px galériaképek, az eredeti sorrendben; hét kép hibamentesen betöltődött. 376 px tényleges mobilnézetben egysoros galéria, H2 30 px, H3 24/31,2 px, nincs vízszintes kilógás. A Chrome képernyőképezése ebben a körben üres/hibás vásznat adott, ezért a teljes vizuális ellenőrzés nem igazolható; DOM-mérések és szerkezeti ellenőrzések sikeresek.
 
 További designjavaslatok: saját Eliza-portré, végleges logó és favicon; hiteles vendégeredmények rövid történettel; a kezelések gyors összehasonlíthatósága; a hosszú oldalak ismételt időpontkérő szakaszainak ritkítása. A galéria kattintható nagyítása későbbi opcionális fejlesztés.
+
+## Rólunk újraszerkesztése
+
+A felhasználó visszajelzése alapján a Rólunk oldal négy részre egyszerűsödött: személyes bemutatkozás egy képpel, szakmai blokkok kompakt számsávval, hatképes galéria, időpontkérés. A külön ismételt történet és felhívás kikerült. A térközök desktopon 64 px, mobilon 48 px szakaszritmust követnek; a design system betűi és méretskálája maradtak. A képek ideiglenesek, végleges kiválasztásuk későbbi feladat.
+
+A galéria hat képe gombként megnyitja a natív dialógust. Következő kép, képaláírás, Escape-es bezárás és görgetés feloldása Chrome-ban sikeresen tesztelve. A natív dialógus kezeli a fókuszt. 376 px tényleges mobilnézetben nincs kilógás, H1 38 px, a galéria egy oszlop. A szerkezeti ellenőrzés sikeres. A képernyőképezés továbbra is böngészőhibába futott, ezért teljes vizuális auditot ebben a körben sem állítunk.
