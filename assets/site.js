@@ -62,6 +62,6 @@ document.querySelectorAll('form').forEach(form=>{
   function updateConsent(){consent.setCustomValidity(consent.checked?'':message);if(consent.checked){error.hidden=true;consent.removeAttribute('aria-invalid');}}
   updateConsent();
   consent.addEventListener('change',updateConsent);
-  consent.addEventListener('invalid',()=>{error.hidden=false;consent.setAttribute('aria-invalid','true');});
-  form.addEventListener('submit',event=>{if(!consent.checked){event.preventDefault();event.stopImmediatePropagation();error.hidden=false;consent.setAttribute('aria-invalid','true');consent.reportValidity();}},true);
+  consent.addEventListener('invalid',event=>{event.preventDefault();error.hidden=false;consent.setAttribute('aria-invalid','true');consent.focus();});
+  form.addEventListener('submit',event=>{if(!consent.checked){event.preventDefault();event.stopImmediatePropagation();error.hidden=false;consent.setAttribute('aria-invalid','true');consent.focus();}},true);
 });
