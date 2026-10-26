@@ -1,0 +1,26 @@
+{
+  "brand_source": "design-system.md",
+  "round": 2,
+  "directions": [
+    {
+      "id": 4,
+      "description": "Olívazöld hero világos címmel, két külön fotóval, tipográfiai kezelési listával.",
+      "slug": "oliva-studio",
+      "name": "Olíva stúdió"
+    },
+    {
+      "id": 5,
+      "description": "Szövegközpontú nyitás, külön háromképes sor és horizontális kezelési bemutatók.",
+      "slug": "arcapolasi-tortenet",
+      "name": "Arcápolási történet"
+    },
+    {
+      "id": 6,
+      "description": "Fotó nélküli navigációs nyitás három kezelési iránnyal és külön képsávval.",
+      "slug": "szemelyes-konzultacio",
+      "name": "Személyes konzultáció"
+    }
+  ],
+  "plan": "plan-2.md",
+  "total": 3
+}
