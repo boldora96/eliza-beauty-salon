@@ -1,1 +1,9 @@
-{"phase":"prototypes_complete","is_redesign":false,"source_url":null,"direction_count":3,"scope":"homepage_only","preview_url":"http://127.0.0.1:4173/","selected_direction":null}
+{
+  "phase": "prototypes_complete",
+  "is_redesign": false,
+  "source_url": null,
+  "direction_count": 3,
+  "scope": "homepage_only",
+  "preview_url": "http://127.0.0.1:4173/",
+  "selected_direction": 2
+}
