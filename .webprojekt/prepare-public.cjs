@@ -4,7 +4,7 @@ const root = path.resolve(__dirname, '..');
 const destination = path.join(root, 'public');
 const pages = ['index.html', 'kezelesek.html', 'rolunk.html', 'kapcsolat.html', 'adatkezeles.html'];
 const selected = new Set();
-const queue = [...pages];
+const queue = [...pages, 'sitemap.xml', 'robots.txt'];
 function enqueue(reference, owner) {
   reference = reference.replace(/&amp;/g, '&');
   if (!reference || /^(?:https?:|data:|mailto:|tel:|#|\/\/)/i.test(reference)) return;

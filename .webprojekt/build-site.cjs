@@ -3,6 +3,8 @@ const path = require('node:path');
 process.chdir(path.resolve(__dirname, '..'));
 const base = fs.readFileSync('.webprojekt/templates/csendes-base.html', 'utf8');
 const stockPhotos = require('./stock-kepek.json');
+const siteUrl = 'https://elizabeautysalon.netlify.app/';
+const canonicalUrl = file => new URL(file === 'index.html' || file === 'koncepcio-1-csendes-szalon.html' ? '' : file.replace(/\.html$/, ''), siteUrl).href;
 const md = fs.readFileSync('szovegek.md', 'utf8').replace(/\r/g, '');
 const sections = [...base.matchAll(/<section\b[\s\S]*?<\/section>/g)].map(m => m[0]);
 const blocks = md.split(/^## /m);
@@ -66,7 +68,7 @@ const render = (filename, title, description, content) => {
   });
   const current = filename === 'koncepcio-1-csendes-szalon.html' ? 'index.html' : filename;
   const activeHeader = header.replace(new RegExp(`href="${current.replace('.', '\\.')}"`, 'g'), `href="${current}" aria-current="page"`);
-  fs.writeFileSync(filename, `<!doctype html>\n<html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>${esc(title)} | Eliza Beauty Salon</title><meta name="description" content="${esc(description)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>${fonts}<link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script></head><body data-typography="eliza"><a class="skip-link" href="#tartalom">Ugrás a tartalomhoz</a>${activeHeader}<main id="tartalom">${content}</main>${footer}</body></html>\n`);
+  fs.writeFileSync(filename, `<!doctype html>\n<html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>${esc(title)} | Eliza Beauty Salon</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${canonicalUrl(filename)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>${fonts}<link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script></head><body data-typography="eliza"><a class="skip-link" href="#tartalom">Ugrás a tartalomhoz</a>${activeHeader}<main id="tartalom">${content}</main>${footer}</body></html>\n`);
 };
 let home = sections.map((section, index) => index === 5 ? testimonials : section).join('\n').replace('id="kapcsolat"', 'id="idopont"');
 home = home.replace(/href="#kapcsolat"/g, 'href="#idopont"').replace('href="#kezelesek">Megnézem a kezeléseket', 'href="kezelesek.html">Megnézem a kezeléseket').replace('href="#idopont">Ismerkedjünk meg személyesen', 'href="rolunk.html">Ismerkedjünk meg személyesen');
@@ -137,3 +139,7 @@ render('kapcsolat.html', 'Kapcsolat és időpontkérés', 'Vedd fel a kapcsolato
   contactPanel + wrap(`<div class="location-layout"><div><h2>Így találsz meg</h2><p>1092 Budapest, Ráday u. 1.</p><p>Hétfőtől péntekig 9:00 és 16:00 között, kizárólag előre egyeztetett időpontban fogadlak. Szombaton és vasárnap zárva.</p>${button('Megnyitom a térképet','https://www.google.com/maps/search/?api=1&query=1092+Budapest+R%C3%A1day+utca+1',true)}</div><div class="location-map"><iframe title="Google-térkép: 1092 Budapest, Ráday utca 1." src="https://maps.google.com/maps?q=1092%20Budapest%2C%20R%C3%A1day%20utca%201&amp;z=16&amp;output=embed" width="600" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div></div>`) + faq);
 render('adatkezeles.html', 'Adatkezelési tájékoztató', 'Az Eliza Beauty Salon weboldalának adatkezelési tájékoztatója: kapcsolatfelvétel, időpontkérés és az érintettek jogai.', wrap(`<article class="privacy-policy">${require('./render-privacy.cjs')()}</article>`));
 console.log('Elkészült: index.html, kezelesek.html, rolunk.html, kapcsolat.html, adatkezeles.html és a főoldali hivatkozás.');
+
+const sitemapPages = ['index.html','kezelesek.html','rolunk.html','kapcsolat.html','adatkezeles.html'];
+fs.writeFileSync('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + sitemapPages.map(file => '  <url><loc>' + canonicalUrl(file) + '</loc></url>').join('\n') + '\n</urlset>\n');
+fs.writeFileSync('robots.txt', 'User-agent: *\nAllow: /\n\nSitemap: ' + siteUrl + 'sitemap.xml\n');
