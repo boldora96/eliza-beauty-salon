@@ -32,7 +32,7 @@ Asztali és 375 px mobilnézetben Chrome-ban ellenőrizve: tipográfia, képek, 
 
 ## Élesítés előtt hátravan
 
-- Az időpontkérő űrlap tényleges bekötése és a beérkező próbaüzenet ellenőrzése. Jelenleg nincs hálózati adatküldés, ezt az űrlap jelzi. A hírlevél-feliratkozás letiltva marad.
+- Az időpontkérő űrlap tényleges bekötése és a beérkező próbaüzenet ellenőrzése. Jelenleg nincs hálózati adatküldés, ezt az űrlap jelzi. A kisokos űrlapja kitölthető és ellenőrizhető, de még nem továbbít adatot és nem ad letöltést.
 - A kurzus adatkezelési sablonja és végleges adatkezelői adatok alapján a tájékoztató elkészítése.
 - Saját végleges logó és favicon exportja.
 - A briefben szereplő fiktív elérhetőségek véglegesítése; a stock képek illusztrációk.

@@ -77,5 +77,8 @@ A saját logó és favicon webes exportja még hátravan. SVG az elsődleges for
 - Fejléc- és láblécmenü, adatkezelési link, CTA-k: aláhúzás nélkül. A szöveges menülinkek hoverre olívazöldek; billentyűzetes fókusz megmarad.
 - A főoldali fotó feliratán 0,5 px-es, a képkerettel egyező áttetsző olívazöld keret.
 - Statisztikai számok: Playfair Display 400, desktop 60 px, mobil 38 px, 1,3 sorköz. Az animált belső elem ezt örökli.
-- A kisokos gombja letiltva is teljes fedettségű olívazöld; a letiltott működés megmarad.
+- A kisokos gombja teljes fedettségű olívazöld; az űrlap kitölthető, a tényleges feliratkozás és letöltés bekötése külön feladat.
 - A lábléc növényi dísze elhagyva.
+
+- A Rólunk oldal szerkesztettebb szakaszritmusa a felhasználói finomítások alapján desktopon 64px, mobilon 48px; ez tudatos kivétel az általános szakasztérköz-ajánlás alól.
+- A galéria képaláírása mobilon is a 16px / 1,6 body skálát követi.

@@ -1,0 +1,314 @@
+[
+  {
+    "consents": 2,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 2,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/index.html",
+    "typeErrors": [],
+    "width": 1440
+  },
+  {
+    "consents": 1,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 1,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/kezelesek.html",
+    "typeErrors": [],
+    "width": 1440
+  },
+  {
+    "consents": 1,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 1,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/rolunk.html",
+    "typeErrors": [],
+    "width": 1440
+  },
+  {
+    "consents": 1,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 1,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/kapcsolat.html",
+    "typeErrors": [],
+    "width": 1440
+  },
+  {
+    "consents": 2,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 2,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/index.html",
+    "typeErrors": [],
+    "width": 375
+  },
+  {
+    "consents": 1,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 1,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/kezelesek.html",
+    "typeErrors": [],
+    "width": 375
+  },
+  {
+    "consents": 1,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 1,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/rolunk.html",
+    "typeErrors": [],
+    "width": 375
+  },
+  {
+    "consents": 1,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 1,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/kapcsolat.html",
+    "typeErrors": [],
+    "width": 375
+  },
+  {
+    "consents": 2,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 2,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/index.html",
+    "typeErrors": [],
+    "width": 320
+  },
+  {
+    "consents": 1,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 1,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/kezelesek.html",
+    "typeErrors": [],
+    "width": 320
+  },
+  {
+    "consents": 1,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 1,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/rolunk.html",
+    "typeErrors": [],
+    "width": 320
+  },
+  {
+    "consents": 1,
+    "fonts": {
+      "lora": true,
+      "montserrat": true,
+      "playfair": true
+    },
+    "footerLinks": [
+      "index.html",
+      "mailto:hello.elizabeauty@gmail.com",
+      "tel:+36203449272",
+      "index.html",
+      "kezelesek.html",
+      "rolunk.html",
+      "kapcsolat.html",
+      "adatkezeles.html"
+    ],
+    "forms": 1,
+    "h1s": 1,
+    "imagesMissingAlt": 0,
+    "openFaq": 0,
+    "overflow": false,
+    "page": "/kapcsolat.html",
+    "typeErrors": [],
+    "width": 320
+  }
+]
