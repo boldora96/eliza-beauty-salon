@@ -31,3 +31,9 @@ Ez megjelenési és működési ellenőrzés, nem teljes akadálymentességi aud
 ## Komponensek egységesítése
 
 A jelenlegi öt generált oldal 1536, 768 és 375 px szélességen ellenőrizve. Gombok: Lora 600, 16/14 px, 1,3 sorköz, 16 × 24 px belső térköz, 4 px sarok. A menügomb ugyanezt követi. Mezők: törtfehér háttér, mélybarna szöveg, olívazöld fókusz. A vizsgált gombok, mezők és betűcsaládok között nincs eltérés; nincs vízszintes kilógás. Közös 8 px-es térközrendszer, 20 px-es szolgáltatásképek, teljes fedettségű megjegyzések. Sötét felületeken a gombok világos változatot használnak. A korábbi, archivált alternatív főoldalak változatlanok. Saját logó/favicon export továbbra is hátravan; a megfelelőség erre még nem teljes.
+
+## Figma-szakaszok cseréje
+
+A Rólunk oldal korábbi évszámsorát, értéklistáját és két hangulatképét a felhasználó kérésére a Figma 38327:238, 38327:271 és 38204:1161 szakaszai váltották fel. Négy szakmai blokk, három statisztikakártya és hat eredeti Figma-kép került az oldalba, helyi WebP formátumban. A 14+, 1300+, 350+ adatok a felhasználó tervéből származnak. Asztali geometria: 404 × 404 px galériaképek, az eredeti sorrendben; hét kép hibamentesen betöltődött. 376 px tényleges mobilnézetben egysoros galéria, H2 30 px, H3 24/31,2 px, nincs vízszintes kilógás. A Chrome képernyőképezése ebben a körben üres/hibás vásznat adott, ezért a teljes vizuális ellenőrzés nem igazolható; DOM-mérések és szerkezeti ellenőrzések sikeresek.
+
+További designjavaslatok: saját Eliza-portré, végleges logó és favicon; hiteles vendégeredmények rövid történettel; a kezelések gyors összehasonlíthatósága; a hosszú oldalak ismételt időpontkérő szakaszainak ritkítása. A galéria kattintható nagyítása későbbi opcionális fejlesztés.

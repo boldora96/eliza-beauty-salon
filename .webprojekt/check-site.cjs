@@ -20,6 +20,6 @@ const result = files.map(file=>{
 const treatment=fs.readFileSync('kezelesek.html','utf8');
 const prices=['79 000 Ft','99 000 Ft','59 000 Ft'].every(p=>treatment.includes(p));
 const about=fs.readFileSync('rolunk.html','utf8');
-const values=['Minőség','Hitelesség','Természetesség','Fejlődés','Énidő'].every(p=>about.includes(`<h3>${p}</h3>`));
-console.log(JSON.stringify({pages:result,packagePricesCorrect:prices,allFiveValues:values},null,2));
+const values=['A tudás, ami a kezeléseim mögött áll','Bizalmatok a legnagyobb elismerés','Pillanatok a szalonból'].every(p=>about.includes(p)) && (about.match(/images\/szalon-[1-6]\.webp/g)||[]).length===6;
+console.log(JSON.stringify({pages:result,packagePricesCorrect:prices,figmaSectionsAndSixPhotos:values},null,2));
 if(result.some(r=>r.h1!==1||r.missing.length||r.duplicates.length)||!prices||!values)process.exitCode=1;
