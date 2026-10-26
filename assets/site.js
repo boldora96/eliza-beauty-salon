@@ -22,3 +22,33 @@ if(galleryDialog && galleryImages.length){
   galleryDialog.addEventListener('click',event=>{if(event.target===galleryDialog){const box=galleryDialog.getBoundingClientRect();if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)galleryDialog.close();}});
   galleryDialog.addEventListener('close',()=>{document.body.classList.remove('gallery-open');});
 }
+
+// A statisztikák csak az első megjelenéskor számolnak fel.
+const statisticNumbers = [...document.querySelectorAll('.about-numbers .trust-number')];
+if(statisticNumbers.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
+  const statisticObserver = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      statisticObserver.unobserve(entry.target);
+      const el=entry.target;
+      const finalText=el.textContent;
+      const target=Number(finalText.replace(/[^0-9]/g,''));
+      if(!Number.isFinite(target)||target<=0)return;
+      el.setAttribute('aria-label',finalText);
+      const visual=document.createElement('span');
+      visual.setAttribute('aria-hidden','true');
+      visual.textContent='0+';
+      el.replaceChildren(visual);
+      const started=performance.now();
+      function tick(now){
+        if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){visual.textContent=finalText;return;}
+        const progress=Math.min((now-started)/1400,1);
+        const eased=1-Math.pow(1-progress,3);
+        visual.textContent=progress===1?finalText:Math.floor(target*eased)+'+';
+        if(progress<1)requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  },{threshold:0.6});
+  statisticNumbers.forEach(el=>statisticObserver.observe(el));
+}
