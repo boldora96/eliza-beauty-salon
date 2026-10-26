@@ -171,3 +171,7 @@ body[data-typography] .footer-bottom{margin-top:40px;padding-top:24px;gap:24px}
 @media(max-width:720px){.about-opening{padding:24px 0 48px}.about-intro{grid-template-columns:1fr;gap:32px}.about-intro img{height:360px}.about-credentials,.about-gallery{padding:48px 0}.about-expertise .expertise-grid{gap:24px}.about-numbers{gap:24px;margin-top:32px;padding-top:24px;grid-template-columns:1fr}.about-numbers>div{display:flex;align-items:center;gap:24px;text-align:left}.about-numbers .trust-number{min-width:112px;margin:0}.gallery-controls{gap:8px}.gallery-controls button{flex-shrink:0}.gallery-caption{font-size:14px!important}}
 .about-numbers .trust-number{font-variant-numeric:lining-nums tabular-nums;min-width:5ch}
 body[data-typography] .stats strong{font-variant-numeric:lining-nums tabular-nums;min-width:5ch}
+
+/* CTA: egyetlen, 1 px-es keret alap- és hoverállapotban is. */
+body[data-typography] .button,body[data-typography] .button:hover{box-shadow:none;border-width:1px;font-synthesis:none}
+body[data-typography] .button.secondary:hover{box-shadow:none;background:transparent;border-color:#4F6045;color:#4F6045}
