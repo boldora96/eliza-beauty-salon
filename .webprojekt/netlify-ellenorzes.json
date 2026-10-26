@@ -1,0 +1,27 @@
+{
+  "url": "https://elizabeautysalon.netlify.app/",
+  "checked": 32,
+  "failed": [],
+  "excludedFiles": [
+    {
+      "file": "eliza-jegyzet.md",
+      "status": 404
+    },
+    {
+      "file": "design-system.md",
+      "status": 404
+    },
+    {
+      "file": "koncepcio-1-csendes-szalon.html",
+      "status": 404
+    },
+    {
+      "file": ".webprojekt/build-site.cjs",
+      "status": 404
+    },
+    {
+      "file": "Eliza-anyagok/Eliza képek/Képforrások.md",
+      "status": 404
+    }
+  ]
+}
