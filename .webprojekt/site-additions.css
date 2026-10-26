@@ -89,3 +89,40 @@ body[data-typography] .location-layout p + p{margin-top:16px}
 body[data-typography] details p{margin-top:16px}
 body[data-typography] .quote blockquote{line-height:1.6}
 body[data-typography] .guarantee h3{margin-bottom:0}
+
+/* Végleges komponensszabályok a design-system.md alapján. */
+body[data-typography] .button,body[data-typography] header .button,body[data-typography] .nav .button,body[data-typography] .menu-button{padding:16px 24px;min-height:44px;border-radius:4px;border:1px solid #4F6045}
+body[data-typography] .button:not(.secondary){background:#4F6045;color:#FBF9F6;border-color:#4F6045}
+body[data-typography] .button:not(.secondary):hover{background:#40302B;border-color:#40302B}
+body[data-typography] .button.secondary{background:transparent;color:#4F6045;border-color:#4F6045}
+body[data-typography] .contact .button,body[data-typography] .olive .button{background:#FBF9F6;color:#4F6045;border-color:#FBF9F6}
+body[data-typography] .contact .button:hover,body[data-typography] .olive .button:hover{background:#40302B;color:#FBF9F6;border-color:#40302B}
+body[data-typography] input,body[data-typography] textarea{background:#FBF9F6;color:#40302B;border:1px solid #40302B33;border-radius:4px;padding:16px;min-height:44px}
+body[data-typography] input:focus-visible,body[data-typography] textarea:focus-visible{outline:2px solid #4F6045;outline-offset:2px}
+body[data-typography] input[type=checkbox]{min-height:0;padding:0;accent-color:#4F6045}
+body[data-typography] .note,body[data-typography] .privacy-note,body[data-typography] .about-image figcaption{opacity:1}
+body[data-typography] .actions{gap:16px;margin-top:32px}
+body[data-typography] .section-head{margin-bottom:48px}
+body[data-typography] .hero-grid{gap:64px}
+body[data-typography] .hero-copy{padding:24px 0 32px}
+body[data-typography] .about-grid{gap:64px}
+body[data-typography] .benefits{gap:32px 64px;margin-top:48px}
+body[data-typography] .benefit{gap:16px}
+body[data-typography] .services{gap:32px}
+body[data-typography] .service img{border-radius:20px}
+body[data-typography] .process-grid{gap:32px;margin-top:48px}
+body[data-typography] .step-number{padding-bottom:16px;margin-bottom:24px}
+body[data-typography] .guarantee{padding:40px 48px;gap:48px;margin-top:64px;border-color:#40302B33}
+body[data-typography] .faq-grid,body[data-typography] .newsletter,body[data-typography] .contact-grid{gap:64px}
+body[data-typography] details{padding-block:24px;border-color:#40302B33}
+body[data-typography] details:first-child{padding-top:0}
+body[data-typography] summary{gap:24px}
+body[data-typography] .field-grid{gap:24px}
+body[data-typography] .form-field{margin-bottom:24px}
+body[data-typography] .contact-info{margin-top:32px}
+body[data-typography] .footer-grid{gap:64px}
+body[data-typography] .footer-links{gap:8px}
+body[data-typography] .footer-title{margin-bottom:16px}
+body[data-typography] .footer-bottom{margin-top:40px;padding-top:24px;gap:24px}
+@media(max-width:1000px){body[data-typography] .hero-grid,body[data-typography] .about-grid,body[data-typography] .faq-grid,body[data-typography] .newsletter,body[data-typography] .contact-grid,body[data-typography] .footer-grid{gap:32px}}
+@media(max-width:720px){body[data-typography] .hero-copy{padding:16px 0 0}body[data-typography] .section-head{margin-bottom:32px}body[data-typography] .benefits{margin-top:32px}body[data-typography] .process-grid{gap:32px;margin-top:32px}body[data-typography] .guarantee{padding:24px;gap:24px;margin-top:40px}body[data-typography] .field-grid{gap:0}body[data-typography] .contact-info{margin-top:24px}}

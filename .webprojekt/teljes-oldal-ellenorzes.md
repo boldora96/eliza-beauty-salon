@@ -27,3 +27,7 @@ Ez megjelenési és működési ellenőrzés, nem teljes akadálymentességi aud
 ## Sorközök felülvizsgálata
 
 2026. október 26.: mind az öt generált oldal 1536 és 375 px szélességen számított stílusokkal ellenőrizve. H1–H3, alcímek és gombok sormagassága 1,3; bekezdések, idézetek, listák és űrlapmezők 1,6. Nem volt eltérés vagy vízszintes túlcsordulás. Egységes cím- és bekezdésmargók; az évszámok álló, azonos magasságú számjegyekkel és 8 px címközzel jelennek meg. A 24 px mobil H3 számított sormagassága 31,2 px (a mérésben a lebegőpontos kerekítés figyelembe véve).
+
+## Komponensek egységesítése
+
+A jelenlegi öt generált oldal 1536, 768 és 375 px szélességen ellenőrizve. Gombok: Lora 600, 16/14 px, 1,3 sorköz, 16 × 24 px belső térköz, 4 px sarok. A menügomb ugyanezt követi. Mezők: törtfehér háttér, mélybarna szöveg, olívazöld fókusz. A vizsgált gombok, mezők és betűcsaládok között nincs eltérés; nincs vízszintes kilógás. Közös 8 px-es térközrendszer, 20 px-es szolgáltatásképek, teljes fedettségű megjegyzések. Sötét felületeken a gombok világos változatot használnak. A korábbi, archivált alternatív főoldalak változatlanok. Saját logó/favicon export továbbra is hátravan; a megfelelőség erre még nem teljes.
