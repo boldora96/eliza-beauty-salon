@@ -151,7 +151,7 @@ body[data-typography] .button.secondary:hover{border:0.5px solid #40302B;backgro
 body[data-typography] .photo-note{border:0.5px solid #4f604559;background:#FBF9F6;border-radius:4px}
 body[data-typography] .stats strong,body[data-typography] .about-numbers .trust-number{font:400 var(--type-h1)/1.3 'Playfair Display',Georgia,serif;font-variant-numeric:lining-nums tabular-nums;color:#4F6045}
 body[data-typography] .newsletter button.button:disabled{opacity:1;background:#4F6045;color:#FBF9F6;border-color:#4F6045}
-.personal-story-section{padding:64px 0}.personal-story{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}.personal-story figure{margin:0;overflow:hidden;border-radius:20px}.personal-story img{height:590px;object-fit:cover;object-position:80% center}.story-eyebrow{color:#40302B}
+.personal-story-section{padding:64px 0}.personal-story{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}.personal-story figure{margin:0;overflow:hidden;border-radius:20px}.personal-story img{height:590px;object-fit:cover;object-position:center}.story-eyebrow{color:#40302B}
 @media(max-width:900px){.personal-story{gap:32px}.personal-story img{height:500px}}
 @media(max-width:720px){.personal-story-section{padding:48px 0}.personal-story{grid-template-columns:1fr;gap:32px}.personal-story img{height:360px}.about-numbers>div{flex-wrap:wrap}}
 body[data-typography] .stats strong>span,body[data-typography] .about-numbers .trust-number>span{font:inherit;color:inherit}
@@ -181,3 +181,7 @@ body[data-typography] .site-footer .footer-title{font:500 var(--type-subtitle)/1
 @media(prefers-reduced-motion:reduce){.about-intro>div,.contact-hero>div,.about-intro>figure,.contact-hero>figure{animation:none!important}}
 
 .privacy-policy{max-width:760px;margin-inline:auto}.privacy-policy h1{margin-bottom:24px}.privacy-policy h2{margin-top:48px;scroll-margin-top:32px}.privacy-policy p,.privacy-policy li{max-width:680px}.privacy-policy ul{padding-left:24px;margin:24px 0}.privacy-policy li+li{margin-top:12px}.privacy-policy a{text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}.privacy-policy a:hover{color:#4F6045}.privacy-policy strong{font-weight:600}.policy-toc{margin:32px 0;padding:24px;border:1px solid #40302B33;border-radius:12px;background:#FBF9F6}.privacy-policy .policy-toc h2{margin-top:0}.policy-toc ul{margin-bottom:0}.privacy-policy{overflow-wrap:anywhere}@media(max-width:720px){.privacy-policy h2{margin-top:32px}.policy-toc{padding:24px}}
+
+/* A stockfotók arcra igazított kivágásai. */
+.hero-photo img[src*="eredeti%20f%C5%91oldali"]{object-position:center}
+.guest-photo{object-position:center 35%}

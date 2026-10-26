@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 process.chdir(path.resolve(__dirname, '..'));
 const base = fs.readFileSync('.webprojekt/templates/csendes-base.html', 'utf8');
+const stockPhotos = require('./stock-kepek.json');
 const md = fs.readFileSync('szovegek.md', 'utf8').replace(/\r/g, '');
 const sections = [...base.matchAll(/<section\b[\s\S]*?<\/section>/g)].map(m => m[0]);
 const blocks = md.split(/^## /m);
@@ -44,6 +45,14 @@ const faq = sections[6];
 const processSection = sections[4];
 const testimonials = sections[5].split('<div class="guarantee">')[0] + '</div></section>';
 const render = (filename, title, description, content) => {
+  content = content.replace(/<img\b[^>]*>/g, tag => {
+    const key = tag.match(/src="images\/([^"/]+)\.webp"/)?.[1];
+    const item = stockPhotos[key];
+    if (!item) return tag;
+    return tag.replace(/src="[^"]*"/, `src="${encodeURI(item.file)}"`)
+      .replace(/alt="[^"]*"/, `alt="${tag.includes('class="guest-photo"') ? '' : esc(item.alt)}"`)
+      .replace(/width="\d+"/, `width="${item.width}"`).replace(/height="\d+"/, `height="${item.height}"`);
+  });
   let formIndex = 0;
   content = content.replace(/<form\b[\s\S]*?<\/form>/g, form => {
     const id = `privacy-consent-${++formIndex}`;
@@ -70,7 +79,7 @@ const problemItems = problem.split('\n').filter(l => l.startsWith('- **') && !l.
 }).join('');
 const treatmentBody = subsection(treatments, 'Kezelések');
 const serviceNames = ['Belico arckezelések', 'Mesotica luxus kezelések', 'További kezelések'];
-const serviceImages = ['arcapolas', 'kezeles', 'arcmasszazs'];
+const serviceImages = ['kezelesek-belico', 'kezelesek-mesotica', 'kezelesek-tovabbi'];
 const serviceHtml = serviceNames.map((name, i) => {
   const txt = treatmentBody.split(`**${name}**\n`)[1].split(/\n\*\*/)[0].trim();
   const lines = txt.split('\n');
@@ -83,13 +92,13 @@ const packages = subsection(treatments, 'Csomagok');
 const table = packages.split('\n').filter(l => l.startsWith('|')).map(l => l.split('|').slice(1,-1).map(c => c.trim()));
 const packageCards = [1,2,3].map(i => `<article class="package"><h3>${esc(table[0][i])}</h3><p class="price">${esc(table[2][i])}</p>${p(table[3][i])}<ul class="plain-list">${table[4][i].split(' · ').map(t=>`<li>${esc(t)}</li>`).join('')}</ul>${button('Ezt választom', `#idopont`, i !== 2)}</article>`).join('');
 render('kezelesek.html', 'Kezelések és kozmetikai csomagok', 'Belico, Mesotica, mezoterápia és anti-akné kezelések. Ismerd meg az Eliza Beauty Salon szolgáltatásait és kezelési csomagjait.',
-  hero(subsection(treatments, 'Hero'), 'kezeles', 'Kíméletes professzionális arckezelés, stock illusztráció') +
+  hero(subsection(treatments, 'Hero'), 'kezelesek-hero', 'Kíméletes professzionális arckezelés, stock illusztráció') +
   wrap(intro(value(problem, 'Cím'), value(problem, 'Szöveg')) + `<div class="feature-grid">${problemItems}</div>`, 'surface') +
   wrap(intro('Személyre szabott kezelések', 'A kezelés kiválasztásánál mindig a bőröd aktuális állapotából indulunk ki.') + serviceHtml, '', 'kezelesek') +
   wrap(intro(value(results, 'Cím'), '', value(results, 'Kicker')) + `<ul class="result-list">${conciseResults.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`, 'surface') +
   wrap(`<div class="callout"><h2>${esc(value(guarantee,'Cím'))}</h2>${p(value(guarantee,'Szöveg'))}</div>`, 'olive') +
   wrap(intro(value(packages,'Cím'),value(packages,'Szöveg'),value(packages,'Kicker')) + `<div class="packages">${packageCards}</div>`) +
-  processSection + testimonials + contact);
+  processSection + testimonials.replace('images/vendeg-fruzsi.webp','images/kezelesek-vendeg-fruzsi.webp').replace('images/vendeg-magdi.webp','images/kezelesek-vendeg-magdi.webp') + contact);
 
 // Rólunk: szakmai történet, értékek és szalonhangulat.
 const about = page('Rólunk');
@@ -109,10 +118,10 @@ const expertise = [
 ];
 const credentials = wrap(`<h2 id="szakmai-hatter">A tudás, ami a kezeléseim mögött áll</h2><div class="expertise-layout"><div class="expertise-grid">${expertise.map(([title,text])=>`<article><h3>${esc(title)}</h3>${p(text)}</article>`).join('')}</div><figure>${photo('szakmai-kep','Kozmetikai termékek és szakmai oklevelek a Figma-terv fotóján')}</figure></div>`);
 const trustCards = wrap(intro('Bizalmatok a legnagyobb elismerés','Több mint egy évtizede segítek vendégeimnek megtalálni a bőrük számára legmegfelelőbb ápolást. Számomra az elégedett mosoly a legnagyobb elismerés.') + `<div class="trust-cards">${[['14+','Év szakmai tapasztalat'],['1300+','Vendég'],['350+','Féle kozmetikum']].map(([number,label])=>`<div class="trust-card"><span class="trust-number">${number}</span><p>${label}</p></div>`).join('')}</div>`, 'surface trust-section');
-const salonGallery = wrap(`<div class="gallery-heading" id="szalongaleria"><div>${eyebrow('Pillanatok a szalonból')}<h2>Ismerd meg az Eliza Beauty Salon világát!</h2><p>Tekints be a szalon hangulatába, és fedezd fel azt a környezetet, ahol minden kezelés Rólad és a bőröd igényeiről szól.</p></div>${button('Időpontot kérek','#idopont')}</div><div class="salon-photo-grid">${['Világos szalonbelső kozmetikai termékpolcokkal','Napfényes recepció és várótér','Kávésarok növényekkel és boltíves tükörrel','Kozmetikai termékek a szalon polcain','Kezelőágy olívazöld textíliákkal','Kezelőkocsi és tiszta törölközők'].map((alt,i)=>photo('szalon-'+(i+1),alt)).join('')}</div>`);
+const salonGallery = wrap(`<div class="gallery-heading" id="szalongaleria"><div>${eyebrow('Pillanatok a szalonból')}<h2>Ismerd meg az Eliza Beauty Salon világát!</h2><p>Természetes fények, finom textúrák és nyugodt részletek. A galéria stockfotói a szalon tervezett hangulatát szemléltetik.</p></div>${button('Időpontot kérek','#idopont')}</div><div class="salon-photo-grid">${['Világos szalonbelső kozmetikai termékpolcokkal','Napfényes recepció és várótér','Kávésarok növényekkel és boltíves tükörrel','Kozmetikai termékek a szalon polcain','Kezelőágy olívazöld textíliákkal','Kezelőkocsi és tiszta törölközők'].map((alt,i)=>photo('szalon-'+(i+1),alt)).join('')}</div>`);
 const personalStory = wrap(`<div class="personal-story"><figure>${photo('eliza-tortenet','A Figma-terv ideiglenes bemutatkozó portréja')}</figure><div><div class="eyebrow story-eyebrow">Az én történetem</div><h2>Egy szenvedélyből született</h2><p>Gyerekkorom óta szenvedélyesen érdekel a szépségápolás világa. Mindig is az motivált, hogy szakértelmemmel segíthessek másoknak egészségesebb, szebb bőrt és nagyobb önbizalmat elérni.</p><p>2011-ben megnyitottam az Eliza Beauty Salont, ahol azóta is elkötelezetten dolgozom vendégeim bőrének megújulásáért. Folyamatosan fejlesztem szakmai tudásomat, és a korszerű bőrfiatalító technológiákat gondosan megválasztott kozmetikai kezelésekkel ötvözöm.</p><p>Hiszem, hogy a látványos eredmények alapja az alapos bőrdiagnosztika és a személyre szabott ápolás. Célom, hogy minden vendégem számára olyan kezelést nyújtsak, amely valóban a bőre igényeire épül, és segít elérni a látható, pozitív változást.</p></div></div>`, 'surface personal-story-section');
 render('rolunk.html', 'Sipos Eliza és a szalon története', 'Ismerd meg Sipos Eliza mesterkozmetikust, szakmai történetét és a személyre szabott bőrápolás mögött álló értékeket.',
-  wrap(`<div class="about-intro"><div>${eyebrow('Sipos Eliza · mesterkozmetikus')}<h1>A bőröd egészsége az én küldetésem</h1><p>Szia, Eliza vagyok, a leendő kozmetikusod!</p>${p('A szépség mindig is az életem része volt, így nem volt kérdés, hogy a kozmetika lesz a hivatásom. Az Eliza Beauty Salonban azon dolgozom, hogy vendégeim bőre ne csak szebb, hanem egészségesebb is legyen.')}${p(storyText.split('\n\n')[2])}<div class="actions">${button('Időpontot kérek','#idopont')}${button('Ismerd meg a szalont','#szalongaleria',true)}</div></div><figure>${photo('torodes','Bőrápolási hangulatkép, ideiglenes illusztráció')}<figcaption>A végleges portrét később választjuk ki.</figcaption></figure></div>`, 'about-opening') + personalStory +
+  wrap(`<div class="about-intro"><div>${eyebrow('Sipos Eliza · mesterkozmetikus')}<h1>A bőröd egészsége az én küldetésem</h1><p>Szia, Eliza vagyok, a leendő kozmetikusod!</p>${p('A szépség mindig is az életem része volt, így nem volt kérdés, hogy a kozmetika lesz a hivatásom. Az Eliza Beauty Salonban azon dolgozom, hogy vendégeim bőre ne csak szebb, hanem egészségesebb is legyen.')}${p(storyText.split('\n\n')[2])}<div class="actions">${button('Időpontot kérek','#idopont')}${button('Ismerd meg a szalont','#szalongaleria',true)}</div></div><figure>${photo('rolunk-hero','Kozmetikai kezelés, stock illusztráció')}<figcaption>Stockfotó, illusztráció. A végleges saját fotót később választjuk ki.</figcaption></figure></div>`, 'about-opening') + personalStory +
   wrap(`<div class="about-expertise"><div class="expertise-heading"><h2>A tudás, ami a kezeléseim mögött áll</h2><p>A személyes figyelem mögött biztos szakmai alapok és folyamatos tanulás áll.</p></div><div class="expertise-grid">${expertise.map(([title,text])=>`<article><h3>${esc(title)}</h3>${p(text)}</article>`).join('')}</div></div><div class="about-numbers" id="statisztikak" aria-label="Bizalmatok a legnagyobb elismerés">${[['14+','Év szakmai tapasztalat'],['1300+','Vendég'],['350+','Féle kozmetikum']].map(([number,label])=>`<div><span class="trust-number">${number}</span><p>${label}</p></div>`).join('')}</div>`, 'surface about-credentials') +
   salonGallery.replace('class="section ', 'class="section about-gallery ') + contact +
   `<dialog class="gallery-dialog" aria-label="Szalonfotó nagyítása"><div class="gallery-view"><button class="gallery-close" type="button" aria-label="Nagyítás bezárása">×</button><img class="gallery-large" alt=""><div class="gallery-controls"><button type="button" class="gallery-prev" aria-label="Előző kép">←</button><p class="gallery-caption" aria-live="polite"></p><button type="button" class="gallery-next" aria-label="Következő kép">→</button></div></div></dialog>`);
@@ -121,7 +130,7 @@ render('rolunk.html', 'Sipos Eliza és a szalon története', 'Ismerd meg Sipos 
 const contactSource = subsection(page('Kapcsolat'),'Hero és űrlap');
 let contactPanel = contact.replace('<h2>Foglalj időpontot,<br>és induljon a változás!</h2>', '<h2>Egyeztessünk időpontot!</h2>');
 render('kapcsolat.html', 'Kapcsolat és időpontkérés', 'Vedd fel a kapcsolatot az Eliza Beauty Salonnal. Elérhetőségek, nyitvatartás és időpontkérő űrlap egy helyen.',
-  wrap(`<div class="contact-hero"><div>${eyebrow('Szeretettel várlak')}<h1>${esc(value(contactSource,'Cím (H1)'))}</h1>${p('Kérdésed van a kezelésekről, vagy időpontot szeretnél egyeztetni? Írj az alábbi űrlapon, vagy keress közvetlenül. Segítek megtalálni a bőrödnek megfelelő törődést.')}</div><figure>${photo('kezeles','Személyes figyelem kozmetikai kezelés közben, illusztráció')}</figure></div>`) +
+  wrap(`<div class="contact-hero"><div>${eyebrow('Szeretettel várlak')}<h1>${esc(value(contactSource,'Cím (H1)'))}</h1>${p('Kérdésed van a kezelésekről, vagy időpontot szeretnél egyeztetni? Írj az alábbi űrlapon, vagy keress közvetlenül. Segítek megtalálni a bőrödnek megfelelő törődést.')}</div><figure>${photo('kapcsolat-hero','Szalon recepció, stock illusztráció')}</figure></div>`) +
   contactPanel + wrap(`<div class="location-layout"><div><h2>Így találsz meg</h2><p>1092 Budapest, Ráday u. 1.</p><p>Hétfőtől péntekig 9:00 és 16:00 között, kizárólag előre egyeztetett időpontban fogadlak. Szombaton és vasárnap zárva.</p>${button('Megnyitom a térképet','https://www.google.com/maps/search/?api=1&query=1092+Budapest+R%C3%A1day+utca+1',true)}</div><div class="location-map"><iframe title="Google-térkép: 1092 Budapest, Ráday utca 1." src="https://maps.google.com/maps?q=1092%20Budapest%2C%20R%C3%A1day%20utca%201&amp;z=16&amp;output=embed" width="600" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div></div>`) + faq);
 render('adatkezeles.html', 'Adatkezelési tájékoztató', 'Az Eliza Beauty Salon weboldalának adatkezelési tájékoztatója: kapcsolatfelvétel, időpontkérés és az érintettek jogai.', wrap(`<article class="privacy-policy">${require('./render-privacy.cjs')()}</article>`));
 console.log('Elkészült: index.html, kezelesek.html, rolunk.html, kapcsolat.html, adatkezeles.html és a főoldali hivatkozás.');

@@ -1,0 +1,115 @@
+{
+  "uses": [
+    {
+      "page": "index.html",
+      "file": "Eliza-anyagok/Eliza képek/Arcápolás – eredeti főoldali nyitókép.webp",
+      "hash": "8aba0f89080def50b077c82ad351d11ad5e56f34ef95ccd59b12ac216072b9e9"
+    },
+    {
+      "page": "index.html",
+      "file": "Eliza-anyagok/Eliza képek/Természetes arcápoló készítmények.webp",
+      "hash": "d4d221561c151b2aed5fff939913a98b51ed91d98183044e7ac3eba9fa8599bc"
+    },
+    {
+      "page": "index.html",
+      "file": "Eliza-anyagok/Eliza képek/Eliza munka közben – arcmasszázs illusztráció.webp",
+      "hash": "182db9eeb997a79c7269537279e12456479b82db9b61e0cc0a8d7682a4504513"
+    },
+    {
+      "page": "index.html",
+      "file": "Eliza-anyagok/Eliza képek/Tápláló arcpakolás felvitele.webp",
+      "hash": "a6769e37ece90433c51c5254d8f00e7282667104003524f0e78bf08d7301d096"
+    },
+    {
+      "page": "index.html",
+      "file": "Eliza-anyagok/Eliza képek/Eliza portréja – stock illusztráció.webp",
+      "hash": "c7f37df88d92bc475d48775551fb6bacb58c3288740a13756308e1cfb0c9eab6"
+    },
+    {
+      "page": "index.html",
+      "file": "Eliza-anyagok/Eliza képek/Vendégportré – Fruzsi illusztráció.webp",
+      "hash": "2adc104d68dc0d1892e6ca587649c6139c37eca892932c796e763ffe7bb343b3"
+    },
+    {
+      "page": "index.html",
+      "file": "Eliza-anyagok/Eliza képek/Vendégportré – Magdi illusztráció.webp",
+      "hash": "f54d51c3a258f235d6f48ac720c802f772829699e74dd3467da3e694821359ea"
+    },
+    {
+      "page": "kezelesek.html",
+      "file": "Eliza-anyagok/Eliza képek/Személyes figyelem a kozmetikában.webp",
+      "hash": "4384831789fe453cd3db339e852d150fc06984691944c4bf07fcd85992361b2c"
+    },
+    {
+      "page": "kezelesek.html",
+      "file": "Eliza-anyagok/Eliza képek/Mindennapi arcápolás természetesen.webp",
+      "hash": "13c525f39801acd2ad097d11a5d01da345228be75008b82ef37a41c48474259d"
+    },
+    {
+      "page": "kezelesek.html",
+      "file": "Eliza-anyagok/Eliza képek/Letisztult bőrápoló készítmények.webp",
+      "hash": "c2eb4a6d486c7146b4c1d9d114bc5a777703a45e9d59d24eec66ba391155d8a4"
+    },
+    {
+      "page": "kezelesek.html",
+      "file": "Eliza-anyagok/Eliza képek/Tápláló krém és természetes textúrák.webp",
+      "hash": "52c2e8d57f676e6a482746ef5955fca6d0f705b1f704377f684fc851729d85af"
+    },
+    {
+      "page": "kezelesek.html",
+      "file": "Eliza-anyagok/Eliza képek/Pihenés a kezelés után – vendégillusztráció.webp",
+      "hash": "530b0f3634d1e935dd3cb274381063d12241d51f649317268fbf03536847a2f1"
+    },
+    {
+      "page": "kezelesek.html",
+      "file": "Eliza-anyagok/Eliza képek/Arcápolási pillanat – vendégillusztráció.webp",
+      "hash": "b1ab848c691ada8de629c1fe0eb52aaca5ba0d90fb92e132506a7c85ab738a5e"
+    },
+    {
+      "page": "rolunk.html",
+      "file": "Eliza-anyagok/Eliza képek/Eliza munka közben – szalonhangulat illusztráció.webp",
+      "hash": "8d7034949cfb51d1c1192560f05b3b89b1f7368a74e5bededa73d98874e2e392"
+    },
+    {
+      "page": "rolunk.html",
+      "file": "Eliza-anyagok/Eliza képek/Eliza bemutatkozása – portréillusztráció.webp",
+      "hash": "ca0a06d3684c1eadb4865359bf28d26be68bd80eee9fe75fa1e88b7d40f67f36"
+    },
+    {
+      "page": "rolunk.html",
+      "file": "Eliza-anyagok/Eliza képek/Szalon recepció.webp",
+      "hash": "71eb76a7b8fecd9e0ec409b2cfac59a198bdaca55e8489d7e36ffed41582d27a"
+    },
+    {
+      "page": "rolunk.html",
+      "file": "Eliza-anyagok/Eliza képek/Napfényes kozmetikai kezelő.webp",
+      "hash": "2f9e41aded64f31f1aec05c8b351d0ce424a7597bcea67fbbdc73aafe5343c0e"
+    },
+    {
+      "page": "rolunk.html",
+      "file": "Eliza-anyagok/Eliza képek/Olívazöld szalonbelső.webp",
+      "hash": "4c0104f622d7c9443717a6911ce1c0e8a03fc40c60872ccc93624c8abf58cae3"
+    },
+    {
+      "page": "rolunk.html",
+      "file": "Eliza-anyagok/Eliza képek/Kozmetikumok a szalonban.webp",
+      "hash": "9b08d370b54fdab805cc5e8bb8234777d55dd7a653ad1072b19aac29d68392fb"
+    },
+    {
+      "page": "rolunk.html",
+      "file": "Eliza-anyagok/Eliza képek/Puha törölközők és ápolóolaj.webp",
+      "hash": "e6595a934c76245f76292053e726531691f01545e9170834a0ae6a94bd757e3c"
+    },
+    {
+      "page": "rolunk.html",
+      "file": "Eliza-anyagok/Eliza képek/Kozmetikai kezelő és eszközök.webp",
+      "hash": "73ae40ec70073c64818c626775236e127689a5c422d1fa72a2101a4e851ce7da"
+    },
+    {
+      "page": "kapcsolat.html",
+      "file": "Eliza-anyagok/Eliza képek/Érkezés a szalon recepciójára.webp",
+      "hash": "521195e6a215ab987004b72f4c5d1310c5649307e88647ebdeda7d70a8962aee"
+    }
+  ],
+  "duplicates": []
+}
