@@ -1,0 +1,47 @@
+[
+  {
+    "page": "index.html",
+    "title": "Kozmetika Budapest IX. kerület | Eliza Beauty Salon",
+    "titleLength": 51,
+    "descriptionLength": 153,
+    "h1": 1,
+    "headingOrder": true,
+    "allImagesHaveAlt": true
+  },
+  {
+    "page": "kezelesek.html",
+    "title": "Arckezelések és kezelési csomagok | Eliza Beauty Salon",
+    "titleLength": 54,
+    "descriptionLength": 155,
+    "h1": 1,
+    "headingOrder": true,
+    "allImagesHaveAlt": true
+  },
+  {
+    "page": "rolunk.html",
+    "title": "Sipos Eliza mesterkozmetikus | Eliza Beauty Salon",
+    "titleLength": 49,
+    "descriptionLength": 161,
+    "h1": 1,
+    "headingOrder": true,
+    "allImagesHaveAlt": true
+  },
+  {
+    "page": "kapcsolat.html",
+    "title": "Kapcsolat és időpontkérés Budapesten | Eliza Beauty Salon",
+    "titleLength": 57,
+    "descriptionLength": 154,
+    "h1": 1,
+    "headingOrder": true,
+    "allImagesHaveAlt": true
+  },
+  {
+    "page": "adatkezeles.html",
+    "title": "Adatkezelési tájékoztató | Eliza Beauty Salon",
+    "titleLength": 45,
+    "descriptionLength": 155,
+    "h1": 1,
+    "headingOrder": true,
+    "allImagesHaveAlt": true
+  }
+]

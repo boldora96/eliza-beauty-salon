@@ -31,6 +31,7 @@ rows = [
  ('szalon-6',3736279,'Kozmetikai kezelő és eszközök','Polina Tankilevitch'),
 ]
 manifest = {}
+seo_alts = json.loads((root / '.webprojekt/seo-alapok.json').read_text(encoding='utf-8'))['imageAlts']
 unique = {}
 for key, pid, name, author in rows:
  filename = name + '.webp'
@@ -41,7 +42,7 @@ for key, pid, name, author in rows:
   shutil.copyfile(original, out / filename)
  else:
   im.save(out / filename, 'WEBP', quality=84, method=6)
- manifest[key] = dict(file='Eliza-anyagok/Eliza képek/'+filename,alt=name+'; stockfotó, illusztráció.',width=im.width,height=im.height,source=f'https://www.pexels.com/photo/{pid}/',author=author)
+ manifest[key] = dict(file='Eliza-anyagok/Eliza képek/'+filename,alt=seo_alts.get(key, name+'; stockfotó, illusztráció.'),width=im.width,height=im.height,source=f'https://www.pexels.com/photo/{pid}/',author=author)
  unique[filename] = manifest[key]
 (root / '.webprojekt/stock-kepek.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 text = '# Eliza Beauty Salon – stockfotók\n\nA képek illusztrációk: nem a tényleges szalont, Elizát vagy a vélemények szerzőit ábrázolják. A látható termékmárkák nem jelentenek partneri kapcsolatot.\n\nForrás és licenc: [Pexels](https://www.pexels.com/license/). Letöltés: 2026. október 26. Az eredeti képarányok megmaradtak, a weboldal képkivágását a komponensek szabályozzák.\n\n| Fájl | Fotós | Eredeti forrás |\n|---|---|---|\n'

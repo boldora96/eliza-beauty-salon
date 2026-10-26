@@ -1,0 +1,48 @@
+{
+  "pages": {
+    "index.html": {
+      "title": "Kozmetika Budapest IX. kerület",
+      "description": "Személyre szabott arckezelések, bőrfiatalítás és anti-akné ápolás Budapesten, a Ráday utcában. Ismerd meg az Eliza Beauty Salont, és egyeztess időpontot!"
+    },
+    "kezelesek.html": {
+      "title": "Arckezelések és kezelési csomagok",
+      "description": "Belico és Mesotica arckezelések, bőrfiatalító és anti-akné csomagok Budapest IX. kerületében. Nézd meg a lehetőségeket és árakat, majd egyeztess időpontot!"
+    },
+    "rolunk.html": {
+      "title": "Sipos Eliza mesterkozmetikus",
+      "description": "Ismerd meg Sipos Eliza mesterkozmetikust, szakmai útját és a személyre szabott bőrápolás szemléletét. Fedezd fel az Eliza Beauty Salont Budapest IX. kerületében!"
+    },
+    "kapcsolat.html": {
+      "title": "Kapcsolat és időpontkérés Budapesten",
+      "description": "Eliza Beauty Salon: elérhetőségek, nyitvatartás és megközelítés a budapesti Ráday utca 1. alatt. Nézd meg a térképet, és egyeztess időpontot arckezelésre!"
+    },
+    "adatkezeles.html": {
+      "title": "Adatkezelési tájékoztató",
+      "description": "Tájékozódj az Eliza Beauty Salon weboldalának adatkezeléséről, a kapcsolatfelvétel és a kisokos-feliratkozás tudnivalóiról, valamint adatvédelmi jogaidról."
+    }
+  },
+  "imageAlts": {
+    "ragyogas": "Törölközős nő szemkörnyékápoló krémet visz fel az arcára, illusztráció",
+    "arcapolas": "Cseppentős bőrápoló üvegek és kozmetikai tégelyek természetes felületen",
+    "kezeles": "Kozmetikus arcmasszázst végez egy pihenő vendégen, illusztráció",
+    "arcmasszazs": "Arcpakolás felvitele ecsettel kozmetikai kezelés közben, illusztráció",
+    "torodes": "Mosolygós nő egy szalon kerek tükrében, stockportré",
+    "eliza-tortenet": "Nő természetes fényben, szalonbelső előtt, stockportré",
+    "rolunk-hero": "Kozmetikus arckezelést végez világos, növényekkel díszített szalonban, illusztráció",
+    "kapcsolat-hero": "Vendég és recepciós egy fa pultnál a szépségszalonban, illusztráció",
+    "kezelesek-hero": "Kozmetikus és kezelőágyon pihenő vendég egy kozmetikai szalonban, illusztráció",
+    "kezelesek-belico": "Nő arcápolási rutin közben a fürdőszobai tükör előtt, illusztráció",
+    "kezelesek-mesotica": "Világos pumpás bőrápoló flakonok letisztult elrendezésben",
+    "kezelesek-tovabbi": "Krémes tégely, üveg és puha textíliák fonott kiegészítők mellett",
+    "kezelesek-vendeg-fruzsi": "Törölközőbe burkolózó nő meleg fényű környezetben, stockportré",
+    "kezelesek-vendeg-magdi": "Nő törölközővel a fején arckrémet visz fel, stockportré",
+    "vendeg-fruzsi": "Mosolygó barna hajú nő semleges háttér előtt, stockportré",
+    "vendeg-magdi": "Mosolygó szőke nő világos blúzban, stockportré",
+    "szalon-1": "Fa recepciós pult növényekkel és kozmetikumokkal, szalonhangulat-illusztráció",
+    "szalon-2": "Napfényes kozmetikai kezelőágy téglaburkolatú helyiségben, szalonhangulat-illusztráció",
+    "szalon-3": "Olívazöld falú kezelőhelyiség világos bútorokkal és növényekkel, szalonhangulat-illusztráció",
+    "szalon-4": "Bőrápoló készítmények bézs és márványos felületen",
+    "szalon-5": "Borostyánszínű ápolóolaj-üveg fa tálcán, törölközők és szárított virágok mellett",
+    "szalon-6": "Kozmetikai kezelőágy és kezelőeszközök világos helyiségben, szalonhangulat-illusztráció"
+  }
+}

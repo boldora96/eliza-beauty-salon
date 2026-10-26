@@ -3,6 +3,7 @@ const path = require('node:path');
 process.chdir(path.resolve(__dirname, '..'));
 const base = fs.readFileSync('.webprojekt/templates/csendes-base.html', 'utf8');
 const stockPhotos = require('./stock-kepek.json');
+const seoBasics = require('./seo-alapok.json');
 const siteUrl = 'https://elizabeautysalon.netlify.app/';
 const canonicalUrl = file => new URL(file === 'index.html' || file === 'koncepcio-1-csendes-szalon.html' ? '' : file.replace(/\.html$/, ''), siteUrl).href;
 const md = fs.readFileSync('szovegek.md', 'utf8').replace(/\r/g, '');
@@ -55,7 +56,7 @@ const render = (filename, title, description, content) => {
     const item = stockPhotos[key];
     if (!item) return tag;
     return tag.replace(/src="[^"]*"/, `src="${encodeURI(item.file)}"`)
-      .replace(/alt="[^"]*"/, `alt="${tag.includes('class="guest-photo"') ? '' : esc(item.alt)}"`)
+      .replace(/alt="[^"]*"/, `alt="${tag.includes('class="guest-photo"') ? '' : esc(seoBasics.imageAlts[key] || item.alt)}"`)
       .replace(/width="\d+"/, `width="${item.width}"`).replace(/height="\d+"/, `height="${item.height}"`);
   });
   let formIndex = 0;
@@ -67,6 +68,10 @@ const render = (filename, title, description, content) => {
     return form.replace(/<button\b/, consent + '<button');
   });
   const current = filename === 'koncepcio-1-csendes-szalon.html' ? 'index.html' : filename;
+  if (seoBasics.pages[current]) {
+    title = seoBasics.pages[current].title;
+    description = seoBasics.pages[current].description;
+  }
   const activeHeader = header.replace(new RegExp(`href="${current.replace('.', '\\.')}"`, 'g'), `href="${current}" aria-current="page"`);
   fs.writeFileSync(filename, `<!doctype html>\n<html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>${esc(title)} | Eliza Beauty Salon</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${canonicalUrl(filename)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>${fonts}<link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script></head><body data-typography="eliza"><a class="skip-link" href="#tartalom">Ugrás a tartalomhoz</a>${activeHeader}<main id="tartalom">${content}</main>${footer}</body></html>\n`);
 };
