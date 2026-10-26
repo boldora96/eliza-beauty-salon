@@ -1,0 +1,83 @@
+{
+  "total": 3,
+  "directions": [
+    {
+      "fonts": {
+        "google_fonts_url": "https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;500&family=Lora:wght@600&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400&display=swap",
+        "heading": {
+          "family": "Playfair Display",
+          "fallback": "Georgia, serif"
+        },
+        "body": {
+          "family": "Montserrat",
+          "fallback": "system-ui, sans-serif"
+        }
+      },
+      "id": 1,
+      "name": "Csendes szalon",
+      "slug": "csendes-szalon",
+      "palette": {
+        "surface": "#FBF9F6",
+        "accent": "#4F6045",
+        "text": "#40302B",
+        "primary": "#4F6045",
+        "secondary": "#40302B",
+        "muted": "#40302B",
+        "bg": "#F8F5F0"
+      },
+      "description": "Tágas kép–szöveg párok, kétoszlopos hero és finom hierarchia."
+    },
+    {
+      "fonts": {
+        "google_fonts_url": "https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;500&family=Lora:wght@600&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400&display=swap",
+        "heading": {
+          "family": "Playfair Display",
+          "fallback": "Georgia, serif"
+        },
+        "body": {
+          "family": "Montserrat",
+          "fallback": "system-ui, sans-serif"
+        }
+      },
+      "id": 2,
+      "name": "Bőrápolási magazin",
+      "slug": "borapolasi-magazin",
+      "palette": {
+        "surface": "#FBF9F6",
+        "accent": "#4F6045",
+        "text": "#40302B",
+        "primary": "#4F6045",
+        "secondary": "#40302B",
+        "muted": "#40302B",
+        "bg": "#F8F5F0"
+      },
+      "description": "Széles fotós hero, olvasható külön címmező, aszimmetrikus magazinos szakaszok."
+    },
+    {
+      "fonts": {
+        "google_fonts_url": "https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;500&family=Lora:wght@600&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400&display=swap",
+        "heading": {
+          "family": "Playfair Display",
+          "fallback": "Georgia, serif"
+        },
+        "body": {
+          "family": "Montserrat",
+          "fallback": "system-ui, sans-serif"
+        }
+      },
+      "id": 3,
+      "name": "Személyes törődés",
+      "slug": "szemelyes-torodes",
+      "palette": {
+        "surface": "#FBF9F6",
+        "accent": "#4F6045",
+        "text": "#40302B",
+        "primary": "#4F6045",
+        "secondary": "#40302B",
+        "muted": "#40302B",
+        "bg": "#F8F5F0"
+      },
+      "description": "Középre zárt szövegközpontú hero két eltolt képpel, személyes bemutatkozás és kezelési lista."
+    }
+  ]
+}

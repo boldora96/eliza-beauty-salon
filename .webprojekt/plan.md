@@ -1,6 +1,6 @@
 # Weboldal-generálási terv
 
-Állapot: az alábbi konkrét koncepcióirányok jóváhagyásra várnak. A brand brief jóváhagyva.
+Állapot: a három irány jóváhagyva. Jelen körben kizárólag a három főoldal készül, aloldalak nélkül.
 
 ## Brand brief összefoglaló
 
@@ -55,3 +55,4 @@ Olívazöld #4F6045, krém #F8F5F0, mélybarna #40302B, törtfehér #FBF9F6. Pla
 ## Hogyan nézd meg a prototípusokat
 
 Az index.html választóoldalról mindhárom irány megnyitható. Chrome-ban asztali és mobilos nézetben is ellenőrizzük. Elsősorban az első benyomást, olvashatóságot, fotók és szövegek arányát, valamint az időpontkérés egyértelműségét hasonlítsd össze. A kiválasztott változat elemei később keverhetők.
+
