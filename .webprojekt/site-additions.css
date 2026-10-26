@@ -185,6 +185,11 @@ body[data-typography] .site-footer .footer-title{font:500 var(--type-subtitle)/1
 /* A stockfotók arcra igazított kivágásai. */
 .hero-photo img[src*="eredeti%20f%C5%91oldali"]{object-position:center}
 .guest-photo{object-position:center 35%}
+.contact-success{width:min(560px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:0;border:1px solid #4f604540;border-radius:20px;background:#FBF9F6;color:#40302B;box-shadow:0 16px 64px #40302b26}
+.contact-success::backdrop{background:#40302b80}
+.contact-success-inner{padding:40px}.contact-success h2{margin:0 0 24px}.contact-success p{margin:0 0 24px;font:400 16px/1.6 'Montserrat',sans-serif}.contact-success .button{min-width:128px}
+.submission-error{padding:16px;background:#FBF9F6;color:#40302B;border:1px solid #40302b33;border-radius:4px}
+@media(max-width:720px){.contact-success-inner{padding:24px}}
 /* Eredeti márkajelzés: aránytartó SVG a világos fejlécben és láblécben. */
 .wordmark:has(.brand-logo){display:inline-flex;align-items:center;flex-shrink:0;line-height:0;letter-spacing:0}
 header .brand-logo{display:block;width:144px;height:auto;object-fit:contain;border-radius:0}

@@ -30,7 +30,7 @@ Az egyes célokhoz külön jogalap tartozik. A tájékoztató megismerését jel
 
 **Cél:** a kérdés megválaszolása, a megfelelő kezelésről való egyeztetés és időpontkérés kezelése. Az űrlap nem automatikus időpontfoglaló; az időpontot Eliza külön egyezteti vissza.
 
-**Jelenlegi működés:** a tesztváltozat mezői kitölthetők és ellenőrizhetők, de a saját űrlapkód nem küldi el, nem menti adatbázisba és nem továbbítja a beírt adatokat Elizának. A megjelenő visszajelzés ezt jelzi. A böngésző saját automatikus kitöltési és előzménybeállításai ettől függetlenül működhetnek.
+**Jelenlegi működés:** az időpontkérő űrlap elküldésekor a megadott adatok HTTPS-kapcsolaton a Netlify Forms szolgáltatásához kerülnek, és a projekt jogosult kezelői a Netlify kezelőfelületén tekinthetik meg őket. A sikeres beküldést a weboldal felugró üzenettel jelzi. Automatikus visszaigazoló e-mail küldése nincs beállítva. Az időpont a beküldéstől még nem válik foglalássá; külön egyeztetés szükséges.
 
 **Élesítéskor meghatározandó:** az űrlapszolgáltató, a tényleges címzettek, a hozzáférők, a tárolás helye és az adatmegőrzés időtartama. A szolgáltatás iránti érdeklődés kezelése a GDPR 6. cikk (1) bekezdés b) pontja szerinti, az érintett kérésére történő szerződéskötést megelőző lépésekhez kapcsolódhat. Más tárgyú megkeresésnél a konkrét célhoz illő jogalapot külön kell meghatározni. Éles adatfogadás csak ezek rögzítése után indulhat.
 
@@ -46,7 +46,7 @@ A tényleges hírlevél indítása előtt biztosítani kell az egyszerű, ingyen
 
 ## 5. Tárhely és külső szolgáltatások
 
-**Tárhely és űrlap:** jelenleg helyi fejlesztői előnézet működik. A Netlify tervezett élesítési cél, de a végleges tárhely-, űrlap- és e-mail-szolgáltatás még nincs bekötve. Az élesítés előtt fel kell tüntetni a tényleges szolgáltatók nevét, elérhetőségét, feladatát és az esetleges adatfeldolgozási, adattovábbítási feltételeket.
+**Tárhely és űrlap:** a bemutató a https://elizabeautysalon.netlify.app/ címen, a Netlify tárhelyén működik. Az időpontkérő üzenetek fogadását és tárolását a Netlify Forms végzi. Az üzemeltetőnek az éles vállalkozási működéshez rögzítenie kell a szolgáltató adatfeldolgozási és adattovábbítási feltételeit. Külön e-mail-küldő szolgáltatás nincs bekötve. További információ: [Netlify adatvédelmi tájékoztató](https://www.netlify.com/privacy/).
 
 **Google Fonts:** az oldal a betűtípusokat Google-kiszolgálókról tölti le. E hálózati kérés során a szolgáltatóhoz eljuthat az IP-cím és a kéréshez kapcsolódó technikai információ. A szolgáltató adatkezeléséről a [Google adatvédelmi tájékoztatója](https://policies.google.com/privacy?hl=hu) ad információt.
 
@@ -62,7 +62,7 @@ A beágyazott külső szolgáltatásokat külön vizsgálni kell az előző pont
 
 ## 7. Hozzáférés, megőrzés és adatbiztonság
 
-A tesztűrlapokhoz jelenleg nem kapcsolódik szerveroldali adattárolás vagy címzetti adatbázis. A tényleges adatmegőrzési időket nem helyettesítjük feltételezett határidőkkel: az éles működés előtt célonként meg kell határozni és itt közzé kell tenni azokat, illetve a meghatározásuk szempontjait.
+Az időpontkérő űrlap adatait a Netlify Forms tárolja, és a Netlify-projekt jogosult kezelői férhetnek hozzájuk. A konkrét megőrzési idő még véglegesítendő; az üzemeltetőnek gondoskodnia kell a beérkezett adatok rendszeres felülvizsgálatáról és a szükségtelenné vált üzenetek törléséről. A kisokos-feliratkozás továbbra sem továbbít vagy tárol adatot a szerveren.
 
 Az éles rendszerben csak a feladatukhoz szükséges jogosultsággal rendelkezők férhetnek hozzá a kezelt adatokhoz. A tárhelyet, a hozzáférések védelmét, az adatátvitel biztonságát és az adatfeldolgozói feltételeket a választott szolgáltatásokhoz igazodva kell beállítani. Jelen dokumentum nem igazol még meg nem valósított biztonsági intézkedést.
 

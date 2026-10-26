@@ -4,7 +4,33 @@ function closeMenu(){nav.classList.remove('open');menuButton.setAttribute('aria-
 menuButton?.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';nav.classList.toggle('open',open);menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'Bezárás':'Menü';});
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav?.classList.contains('open')){closeMenu();menuButton.focus();}});
-document.querySelectorAll('#contact-form').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();form.querySelector('.form-status').textContent='Az űrlap még nincs bekötve, az üzenet nem lett elküldve.';}));
+document.querySelectorAll('#contact-form').forEach(form=>{
+  const dialog=document.querySelector('#contact-success');
+  const button=form.querySelector('button[type="submit"]');
+  const status=form.querySelector('.form-status');
+  let sending=false;
+  dialog?.querySelector('button').addEventListener('click',()=>dialog.close());
+  dialog?.addEventListener('close',()=>button.focus());
+  form.addEventListener('submit',async event=>{
+    event.preventDefault();
+    if(sending || !form.checkValidity())return;
+    sending=true;
+    const originalText=button.textContent;
+    button.disabled=true;button.textContent='Küldés…';form.setAttribute('aria-busy','true');
+    status.textContent='Az üzeneted küldése folyamatban…';status.classList.remove('submission-error');
+    try {
+      const response=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()});
+      if(!response.ok)throw new Error('submission-failed');
+      form.reset();status.textContent='Üzeneted megérkezett. Hamarosan felveszem veled a kapcsolatot.';
+      if(dialog)dialog.showModal();
+    } catch {
+      status.classList.add('submission-error');
+      status.textContent='Nem sikerült megerősíteni az üzenet elküldését. A kitöltött adatokat megőriztük; kérjük, ellenőrizd az internetkapcsolatodat, és próbáld újra.';
+    } finally {
+      sending=false;button.disabled=false;button.textContent=originalText;form.removeAttribute('aria-busy');
+    }
+  });
+});
 
 // A galéria natív dialógusa: billentyűzettel és egérrel egyaránt használható.
 const galleryDialog = document.querySelector('.gallery-dialog');

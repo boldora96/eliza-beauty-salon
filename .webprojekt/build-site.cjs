@@ -62,11 +62,16 @@ const render = (filename, title, description, content) => {
   let formIndex = 0;
   content = content.replace(/<form\b[\s\S]*?<\/form>/g, form => {
     const id = `privacy-consent-${++formIndex}`;
+    if (form.includes('id="contact-form"')) {
+      form = form.replace('<form id="contact-form">', `<form id="contact-form" name="idopontkeres" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="idopontkeres"><input type="hidden" name="page" value="${filename}"><p hidden><label>Hagyd üresen: <input name="bot-field" autocomplete="off" tabindex="-1"></label></p>`)
+        .replace('Látványterv: az űrlap jelenleg nem küld üzenetet.', 'Az időpontot az üzeneted alapján, személyesen egyeztetjük vissza.');
+    }
     const unavailable = /<button[^>]*\bdisabled/.test(form);
     const consent = `<div class="privacy-consent"><label class="checkbox" for="${id}"><input type="checkbox" id="${id}" name="privacy_consent" value="accepted" required aria-describedby="${id}-error"${unavailable ? ' disabled' : ''}><span>Elolvastam és elfogadom az <a href="adatkezeles.html">adatvédelmi irányelveket</a>.</span></label><p class="consent-error" id="${id}-error" hidden>Az üzenet elküldéséhez kérjük, jelöld be, hogy elolvastad és elfogadod az adatvédelmi irányelveket.</p></div>`;
     form = form.replace(/<label class="checkbox">[\s\S]*?<\/label>/g, '');
     return form.replace(/<button\b/, consent + '<button');
   });
+  if (content.includes('id="contact-form"')) content += '<dialog class="contact-success" id="contact-success" aria-labelledby="contact-success-title" aria-describedby="contact-success-description"><div class="contact-success-inner"><h2 id="contact-success-title">Köszönöm a megkeresésed!</h2><p id="contact-success-description">Üzeneted megérkezett. Hamarosan felveszem veled a kapcsolatot a megadott e-mail-címen. Az időpontot külön egyeztetjük.</p><button class="button" type="button" autofocus>Rendben</button></div></dialog>';
   const current = filename === 'koncepcio-1-csendes-szalon.html' ? 'index.html' : filename;
   if (seoBasics.pages[current]) {
     title = seoBasics.pages[current].title;
