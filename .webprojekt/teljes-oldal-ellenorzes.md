@@ -23,3 +23,7 @@ A check-site.cjs sikeresen lefutott: oldalanként egy H1, nincs ismétlődő azo
 ## Határok
 
 Ez megjelenési és működési ellenőrzés, nem teljes akadálymentességi audit vagy PageSpeed-mérés. A valódi üzenetküldés, adatkezelési tájékoztató, végleges logó és Netlify-élesítés még hátravan. A noindex megmaradt a fejlesztési változatban.
+
+## Sorközök felülvizsgálata
+
+2026. október 26.: mind az öt generált oldal 1536 és 375 px szélességen számított stílusokkal ellenőrizve. H1–H3, alcímek és gombok sormagassága 1,3; bekezdések, idézetek, listák és űrlapmezők 1,6. Nem volt eltérés vagy vízszintes túlcsordulás. Egységes cím- és bekezdésmargók; az évszámok álló, azonos magasságú számjegyekkel és 8 px címközzel jelennek meg. A 24 px mobil H3 számított sormagassága 31,2 px (a mérésben a lebegőpontos kerekítés figyelembe véve).
