@@ -47,3 +47,7 @@ A galéria hat képe gombként megnyitja a natív dialógust. Következő kép, 
 ## Kilenc felhasználói finomítás
 
 Mind a négy főoldalon Chrome DOM-ellenőrzés: nincs aláhúzott menü/CTA/lábléclink, nincs lábléc-levélke vagy vízszintes kilógás. Kisokos gomb háttér rgb(79,96,69), opacity 1, továbbra is letiltva. A főoldali animált számok külső és belső elemének mért mérete egyaránt 60 px. Az új bemutatkozó rész a Rólunk hero után, a 38204:1122 Figma-szakasz alapján, eredeti ideiglenes portréval. A közös hover-szabályok a felhasználó kérése szerint felülírják a korábbi másodlagos CTA-állapotot; dokumentálva a design systemben. Képernyőkép a Chrome skálázási/rögzítési hibája miatt nem készült.
+
+## Adatvédelmi jelölőnégyzet és új lábléc
+
+Minden aktív oldali űrlaphoz required privacy_consent checkbox, tájékoztatólink, magyar natív és helyben olvasható hibaüzenet került. A főoldalon két űrlaphoz két egyedi azonosító tartozik; a letiltott kisokos űrlapja továbbra is letiltott. Chrome-próba: kitöltött űrlap jelölés nélkül nem jut a submit visszajelzésig, a hiba megjelenik; kipipálva eltűnik és a még be nem kötött űrlap valós állapotjelzése jelenik meg. Nem történt valódi adatküldés. Mind az öt generált oldalon azonos négyoszlopos lábléc; Rólunk link ellenőrizve. Mobil 375 px: egy oszlop, nincs kilógás. A footer képernyőképpel ellenőrizve. A közösségi ikonok egyelőre nem linkek, mert a profilcímek hiányoznak. Nyitvatartás a briefből (9–16), nem a referenciaképből került átvételre. Az adatkezelési tájékoztató továbbra is előkészítés alatti helyőrző.

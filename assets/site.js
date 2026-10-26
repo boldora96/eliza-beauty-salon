@@ -52,3 +52,16 @@ if(statisticNumbers.length && !window.matchMedia('(prefers-reduced-motion: reduc
   },{threshold:0.6});
   statisticNumbers.forEach(el=>statisticObserver.observe(el));
 }
+
+// Kötelező adatvédelmi nyilatkozat: natív és helyben olvasható visszajelzés.
+document.querySelectorAll('form').forEach(form=>{
+  const consent=form.querySelector('input[name=privacy_consent]');
+  if(!consent)return;
+  const error=form.querySelector('.consent-error');
+  const message='Az üzenet elküldéséhez kérjük, jelöld be, hogy elolvastad és elfogadod az adatvédelmi irányelveket.';
+  function updateConsent(){consent.setCustomValidity(consent.checked?'':message);if(consent.checked){error.hidden=true;consent.removeAttribute('aria-invalid');}}
+  updateConsent();
+  consent.addEventListener('change',updateConsent);
+  consent.addEventListener('invalid',()=>{error.hidden=false;consent.setAttribute('aria-invalid','true');});
+  form.addEventListener('submit',event=>{if(!consent.checked){event.preventDefault();event.stopImmediatePropagation();error.hidden=false;consent.setAttribute('aria-invalid','true');consent.reportValidity();}},true);
+});
