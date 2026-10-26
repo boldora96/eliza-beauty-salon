@@ -53,15 +53,39 @@ if(statisticNumbers.length && !window.matchMedia('(prefers-reduced-motion: reduc
   statisticNumbers.forEach(el=>statisticObserver.observe(el));
 }
 
-// Kötelező adatvédelmi nyilatkozat: natív és helyben olvasható visszajelzés.
-document.querySelectorAll('form').forEach(form=>{
-  const consent=form.querySelector('input[name=privacy_consent]');
-  if(!consent)return;
-  const error=form.querySelector('.consent-error');
-  const message='Az üzenet elküldéséhez kérjük, jelöld be, hogy elolvastad és elfogadod az adatvédelmi irányelveket.';
-  function updateConsent(){consent.setCustomValidity(consent.checked?'':message);if(consent.checked){error.hidden=true;consent.removeAttribute('aria-invalid');}}
-  updateConsent();
-  consent.addEventListener('change',updateConsent);
-  consent.addEventListener('invalid',event=>{event.preventDefault();error.hidden=false;consent.setAttribute('aria-invalid','true');consent.focus();});
-  form.addEventListener('submit',event=>{if(!consent.checked){event.preventDefault();event.stopImmediatePropagation();error.hidden=false;consent.setAttribute('aria-invalid','true');consent.focus();}},true);
+// Egységes, mezőhöz kötött hibaüzenetek minden űrlapon.
+document.querySelectorAll('form').forEach((form,formIndex)=>{
+  form.noValidate=true;
+  const fields=[...form.querySelectorAll('input,textarea,select')].filter(field=>!field.disabled && field.type!=='hidden');
+  const errors=new Map();
+  fields.forEach((field,index)=>{
+    let error=field.name==='privacy_consent'?form.querySelector('.consent-error'):null;
+    if(!error){error=document.createElement('p');error.className='field-error';error.hidden=true;field.after(error);}
+    error.classList.add('validation-message');
+    if(!error.id)error.id=`form-${formIndex+1}-field-${index+1}-error`;
+    error.setAttribute('aria-live','polite');
+    const describedBy=new Set((field.getAttribute('aria-describedby')||'').split(' ').filter(Boolean));describedBy.add(error.id);field.setAttribute('aria-describedby',[...describedBy].join(' '));
+    errors.set(field,error);
+    field.addEventListener('invalid',event=>event.preventDefault());
+    ['input','change'].forEach(eventName=>field.addEventListener(eventName,()=>{if(!error.hidden)showError(field);}));
+  });
+  function messageFor(field){
+    if(field.name==='privacy_consent'&&!field.checked)return 'Az üzenet elküldéséhez kérjük, jelöld be, hogy elolvastad és elfogadod az adatvédelmi irányelveket.';
+    if(field.required && (field.type==='checkbox'?!field.checked:!field.value.trim())){
+      if(field.type==='email')return 'Kérjük, add meg az e-mail-címedet, hogy válaszolni tudjunk.';
+      if(field.tagName==='TEXTAREA')return 'Kérjük, írd meg, miben segíthetünk.';
+      if(field.name==='name')return 'Kérjük, add meg a teljes nevedet.';
+      return 'Kérjük, töltsd ki ezt a mezőt.';
+    }
+    if(field.validity.typeMismatch && field.type==='email')return 'Kérjük, adj meg egy érvényes e-mail-címet, például: nev@pelda.hu.';
+    if(field.validity.tooShort)return `Kérjük, legalább ${field.minLength} karaktert írj ebbe a mezőbe.`;
+    if(field.validity.patternMismatch)return 'Kérjük, ellenőrizd a mezőben megadott adat formátumát.';
+    if(!field.validity.valid)return 'Kérjük, ellenőrizd a mezőben megadott adatot.';
+    return '';
+  }
+  function showError(field){const message=messageFor(field);const error=errors.get(field);error.textContent=message;error.hidden=!message;if(message)field.setAttribute('aria-invalid','true');else field.removeAttribute('aria-invalid');return !!message;}
+  form.addEventListener('submit',event=>{
+    const invalid=fields.filter(field=>showError(field));
+    if(invalid.length){event.preventDefault();event.stopImmediatePropagation();const status=form.querySelector('.form-status');if(status)status.textContent='';invalid[0].focus();invalid[0].scrollIntoView({block:'nearest',behavior:'auto'});}
+  },true);
 });
