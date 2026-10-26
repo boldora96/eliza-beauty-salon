@@ -1,46 +1,41 @@
 # Eliza Beauty Salon
 
-Két körben összesen hat főoldali koncepció a saját olívazöld arculattal. A választóoldal a három új, második körös tervet mutatja. Jelen körben kizárólag főoldalak készültek, további aloldalak nélkül.
+A kiválasztott Csendes szalon irányra épülő, négyoldalas statikus weboldal, saját olívazöld arculattal.
 
-## Megtekintés
+## Oldalak
 
-Nyisd meg az `index.html` fájlt Chrome-ban, vagy indítsd a helyi előnézetet:
+- index.html: Főoldal
+- kezelesek.html: kezelési irányok, eredmények, garancia és csomagárak
+- rolunk.html: bemutatkozás, szakmai út, értékek és szalon
+- kapcsolat.html: időpontkérés, elérhetőségek, megközelítés és GYIK
+- adatkezeles.html: a hiányzó tájékoztató állapotát jelző oldal
 
-```sh
-node .webprojekt/preview-server.cjs
-```
+A korábbi főoldali változatok a koncepciok.html és koncepciok-elso-kor.html választóoldalakon maradtak elérhetők. A koncepcio-1-csendes-szalon.html a végleges főoldal másolata.
+
+## Helyi megtekintés és szerkesztés
+
+Előnézet: node .webprojekt/preview-server.cjs
 
 Cím: http://127.0.0.1:4173/
 
-- `koncepcio-4-oliva-studio.html`: olívazöld nyitás, két kezelésfotó és tipográfiai kezelési lista.
-- `koncepcio-5-arcapolasi-tortenet.html`: szövegközpontú nyitás, külön háromképes sor és horizontális kezelések.
-- `koncepcio-6-szemelyes-konzultacio.html`: fotómentes navigációs hero három kezelési iránnyal.
+Generálás: node .webprojekt/build-site.cjs
 
-Korábbi kör: `koncepciok-elso-kor.html` választóoldal.
+Szerkezeti ellenőrzés: node .webprojekt/check-site.cjs
 
-- `koncepcio-1-csendes-szalon.html`: levegős, kétoszlopos nyitás.
-- `koncepcio-2-borapolasi-magazin.html`: széles fotó, aszimmetrikus szerkesztés.
-- `koncepcio-3-szemelyes-torodes.html`: középre zárt nyitás, személyes bemutatkozás.
+A közös alap a .webprojekt/templates/csendes-base.html, az aloldalak összeállítása a build-site.cjs fájlban található. A közös kiegészítő stílusok a .webprojekt/site-additions.css fájlban szerkeszthetők; az assets/site.css generált eredmény. Az interakciókat az assets/site.js kezeli.
 
-Mindegyik változat önálló HTML, saját stílusokkal és interakciókkal. Az új 4–6. változat saját CSS-t használ, Tailwind-függőség nélkül. A Google Fonts és a prototípusokhoz használt Tailwind Play CDN internetkapcsolatot igényel. A képek helyi, optimalizált WebP-k; forrásaik az `images/forrasok.md` fájlban találhatók.
+## Arculat és ellenőrzés
 
-## Állapot és korlátok
+A design-system.md szabályai szerint egységes betűcsaládok, címméretek, színek és gombok. Közös fejléc és lábléc, működő oldallinkek és mobilmenü. Optimalizált helyi WebP képek, forrásjegyzék: images/forrasok.md. A négy oldal saját címet, meta leírást és egy H1-et kapott.
 
-- Az űrlapok látványtervek: a kapcsolati űrlap kitölthető, de a beküldés csak egy helyi tájékoztató üzenetet jelenít meg, nincs hálózati adatküldés. A hírlevél-feliratkozás le van tiltva.
-- A menü a főoldal megfelelő szakaszaihoz vezet.
-- A saját végleges logó és favicon exportja még hátravan; a feliratok ideiglenesek.
-- A képek stock illusztrációk, nem a tényleges szalonról vagy Elizáról készült fotók.
-- Az ügyféljegyzetben található fiktív elérhetőségek mintaadatként szerepelnek.
-- Az adatkezelési tájékoztató még nem készült el; a lábléc ezt egyértelműen jelzi.
-- Élesítés, további oldalak, valós űrlapbekötés és végleges SEO-ellenőrzés a kiválasztott irány továbbépítésének része.
+Asztali és 375 px mobilnézetben Chrome-ban ellenőrizve: tipográfia, képek, túlcsordulás, mobilmenü, oldallinkek, helyi próbaűrlap. A Kezelések oldal 768 px szélességen is ellenőrizve. Részletek: .webprojekt/teljes-oldal-ellenorzes.md.
 
-## Ellenőrzés
+## Élesítés előtt hátravan
 
-Chrome-ban ellenőrizve asztali és 375 × 812 px mobilnézetben: a három nyitóképernyő, vízszintes túlcsordulás, mobilmenük és szakaszlinkek. Mindhárom kapcsolati űrlap helyi próbaadataival ellenőrizve: a valós küldés hiányáról ad visszajelzést. A GYIK lenyitása működik. Az oldalak egy H1-et és négy GYIK-kérdést tartalmaznak. Ez prototípusellenőrzés, nem teljes élesítési audit vagy PageSpeed-mérés.
+- Az időpontkérő űrlap tényleges bekötése és a beérkező próbaüzenet ellenőrzése. Jelenleg nincs hálózati adatküldés, ezt az űrlap jelzi. A hírlevél-feliratkozás letiltva marad.
+- A kurzus adatkezelési sablonja és végleges adatkezelői adatok alapján a tájékoztató elkészítése.
+- Saját végleges logó és favicon exportja.
+- A briefben szereplő fiktív elérhetőségek véglegesítése; a stock képek illusztrációk.
+- Netlify-élesítés, végleges SEO-beállítások és a fejlesztés alatti noindex eltávolítása.
 
-A repó privát marad. A későbbi éles weboldal célzott tárhelye Netlify.
-
-## Második kör ellenőrzése
-
-Az új 4–6. főoldalak Chrome-ban asztali és 375 × 812 px nézetben ellenőrizve: nincs vízszintes kilógás, működő mobilmenük és belső szakaszlinkek. A 6. változat Hidratálás navigációja a megfelelő kezelési sorhoz vezet. Mindhárom próbaűrlap billentyűzetes beküldése a valódi küldés hiányáról tájékoztat. Az idézetek teljes szöveggel és magyar idézőjelekkel szerepelnek.
-
+A GitHub-repó privát. PageSpeed-mérés és teljes akadálymentességi audit még nem történt.
