@@ -185,3 +185,8 @@ body[data-typography] .site-footer .footer-title{font:500 var(--type-subtitle)/1
 /* A stockfotók arcra igazított kivágásai. */
 .hero-photo img[src*="eredeti%20f%C5%91oldali"]{object-position:center}
 .guest-photo{object-position:center 35%}
+/* Eredeti márkajelzés: aránytartó SVG a világos fejlécben és láblécben. */
+.wordmark:has(.brand-logo){display:inline-flex;align-items:center;flex-shrink:0;line-height:0;letter-spacing:0}
+header .brand-logo{display:block;width:144px;height:auto;object-fit:contain;border-radius:0}
+.site-footer .brand-logo{display:block;width:160px;height:auto;object-fit:contain;border-radius:0}
+@media(max-width:720px){header .brand-logo{width:120px}.site-footer .brand-logo{width:144px}}

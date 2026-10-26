@@ -1,0 +1,3 @@
+[build]
+  command = "node .webprojekt/build-site.cjs && node .webprojekt/prepare-public.cjs"
+  publish = "public"

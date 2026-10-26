@@ -23,7 +23,7 @@ const hero = (s, image, alt) => `<section class="hero subpage-hero"><div class="
 let styles = [...base.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map(m => m[1]).join('\n');
 styles += fs.readFileSync('.webprojekt/site-additions.css', 'utf8');
 fs.writeFileSync('assets/site.css', styles);
-const fonts = base.match(/<link href="https:\/\/fonts.googleapis.com[^>]+>/)[0];
+const fonts = base.match(/<link href="https:\/\/fonts.googleapis.com[^>]+>/)[0] + '<link rel="icon" href="logo/favicon.svg" type="image/svg+xml"><link rel="icon" href="logo/favicon.png" type="image/png">';
 let header = base.match(/<header>[\s\S]*?<\/header>/)[0];
 let footer = base.match(/<footer>[\s\S]*?<\/footer>/)[0];
 footer = footer.replace(/<span class="leaf" aria-hidden="true"><\/span>/g, '');
@@ -40,6 +40,9 @@ footer = footer.replace('⌖', footerIcon('<path d="M20 10c0 6-8 11-8 11S4 16 4 
   .replace('<span aria-label="Instagram">◎</span>', `<span role="img" aria-label="Instagram">${footerIcon('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/>')}</span>`)
   .replace('<span aria-label="YouTube">▶</span>', `<span role="img" aria-label="YouTube">${footerIcon('<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>')}</span>`)
   .replace('<p class="social-note">Közösségi linkjeink hamarosan elérhetők.</p>', '');
+const brandLogo = '<img class="brand-logo" src="logo/logo.svg" alt="Eliza Beauty Salon" width="376" height="206">';
+header = header.replace('ELIZA<small>BEAUTY SALON</small>', brandLogo);
+footer = footer.replace('ELIZA<small>BEAUTY SALON</small>', brandLogo);
 const contact = sections[8].replace('id="kapcsolat"', 'id="idopont"');
 const faq = sections[6];
 const processSection = sections[4];

@@ -1,5 +1,13 @@
 # Eliza Beauty Salon
 
+## Netlify publikálás
+
+A publikálható fájlok a `public/` mappában találhatók: öt végleges oldal, 22 WebP-fotó, a közös CSS és JavaScript, az SVG-logó és a favicon SVG/PNG változata. Munkaanyagok és korábbi koncepciók nem kerülnek bele.
+
+Újragenerálás: `node .webprojekt/build-site.cjs` majd `node .webprojekt/prepare-public.cjs`. A `public/` generált kimenet: ne szerkeszd kézzel. A forrásokat a gyökérmappában és a `.webprojekt/` alatt kell módosítani. A `netlify.toml` automatikusan beállítja a build parancsot és a `public` publish directory értéket. Kézi feltöltésnél csak a `public/` mappát kell átadni a Netlifynak.
+
+A bemutató továbbra is noindex; az űrlapok nem küldenek üzenetet.
+
 A kiválasztott Csendes szalon irányra épülő, négyoldalas statikus weboldal, saját olívazöld arculattal.
 
 ## Oldalak
