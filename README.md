@@ -42,7 +42,7 @@ Asztali és 375 px mobilnézetben Chrome-ban ellenőrizve: tipográfia, képek, 
 
 ## Élesítés előtt hátravan
 
-- Az időpontkérő űrlap tényleges bekötése és a beérkező próbaüzenet ellenőrzése. Jelenleg nincs hálózati adatküldés, ezt az űrlap jelzi. A kisokos űrlapja kitölthető és ellenőrizhető, de még nem továbbít adatot és nem ad letöltést.
+- Az időpontkérő űrlap Netlify Forms fogadása és sikeres popupja működik; egy technikai próbaüzenet ellenőrzött beküldésként megjelent a Netlifyban. A beküldő automatikus e-mail-visszaigazolásához még levélküldő szolgáltatás és feladó beállítása szükséges. A kisokos űrlapja nem továbbít adatot és nem ad letöltést.
 - Az elkészült, személyre szabott adatkezelési tájékoztató véglegesítése a hiányzó vállalkozói adatokkal, éles szolgáltatókkal és megőrzési időkkel.
 - Saját végleges logó és favicon exportja.
 - A briefben szereplő fiktív elérhetőségek véglegesítése; a stock képek illusztrációk.
