@@ -55,3 +55,9 @@ Minden aktív oldali űrlaphoz required privacy_consent checkbox, tájékoztató
 ## Ikonok, kisokos és GYIK
 
 Hat egységes, 24 px-es, 1,6 px vonalvastagságú SVG-ikon váltotta a lábléc szöveges jeleit. A közösségi kiegészítő szöveg eltávolítva. Lábléc törzs 16/25,6 px Montserrat; címek a design system alcímskáláján. A főoldali kisokos mezői és kötelező adatvédelmi jelölése kitölthető, beküldéskor őszinte helyi állapotüzenet jelenik meg; hálózati feliratkozás nincs. Chrome-ban a név/e-mail/jelölés és a gomb kipróbálva. Alapállapotban nyitott GYIK-kérdések száma nulla, a közös sablon minden újrageneráláskor ezt adja. Lábléc képernyőképpel ellenőrizve.
+
+## Adatkezelési tájékoztató személyre szabása
+
+A felhasználó által átadott WPKurzus/Fegyvertár markdown sablonból Eliza weboldalának tényleges tesztműködésére átdolgozott dokumentum készült az Adatvédelmi nyilatkozat mappában. Adatkezelő Sipos Eliza egyéni vállalkozó, szaloncím 1092 Budapest, Ráday utca 1., létrehozás/módosítás 2026. október 26. A hiányzó vállalkozói adatok, székhely-megerősítés, nyilvános URL, szolgáltatók és adatmegőrzési idők kitöltendőként szerepelnek. Nem állítunk nem létező adatküldést, hírlevelet vagy analitikai sütiket. A Google Fonts és beágyazott térkép szerepel a dokumentumban. A sablon elavult NAIH-adatai az intézmény hivatalos oldala alapján frissültek. A tájékoztató továbbra sem végleges éles jogi dokumentum.
+
+Az adatkezeles.html ugyanebből a markdownból generálódik, így a szerkeszthető dokumentum és a webes változat együtt frissül. Mind a négy főoldal, az adatkezelési oldal és a főoldali alias adatvédelmi linkjei ellenőrizve: az adatkezeles.html célra vezetnek. Egy H1, működő tartalomjegyzék és horgonyok, 375 px-en nincs kilógás, body 16 px. Asztali képernyőkép mentve.

@@ -8,7 +8,7 @@ A kiválasztott Csendes szalon irányra épülő, négyoldalas statikus weboldal
 - kezelesek.html: kezelési irányok, eredmények, garancia és csomagárak
 - rolunk.html: bemutatkozás, szakmai út, értékek és szalon
 - kapcsolat.html: időpontkérés, elérhetőségek, megközelítés és GYIK
-- adatkezeles.html: a hiányzó tájékoztató állapotát jelző oldal
+- adatkezeles.html: Elizára szabott, a tesztműködést leíró adatkezelési tájékoztató; az éles adatokkal még véglegesítendő
 
 A korábbi főoldali változatok a koncepciok.html és koncepciok-elso-kor.html választóoldalakon maradtak elérhetők. A koncepcio-1-csendes-szalon.html a végleges főoldal másolata.
 
@@ -33,7 +33,7 @@ Asztali és 375 px mobilnézetben Chrome-ban ellenőrizve: tipográfia, képek, 
 ## Élesítés előtt hátravan
 
 - Az időpontkérő űrlap tényleges bekötése és a beérkező próbaüzenet ellenőrzése. Jelenleg nincs hálózati adatküldés, ezt az űrlap jelzi. A kisokos űrlapja kitölthető és ellenőrizhető, de még nem továbbít adatot és nem ad letöltést.
-- A kurzus adatkezelési sablonja és végleges adatkezelői adatok alapján a tájékoztató elkészítése.
+- Az elkészült, személyre szabott adatkezelési tájékoztató véglegesítése a hiányzó vállalkozói adatokkal, éles szolgáltatókkal és megőrzési időkkel.
 - Saját végleges logó és favicon exportja.
 - A briefben szereplő fiktív elérhetőségek véglegesítése; a stock képek illusztrációk.
 - Netlify-élesítés, végleges SEO-beállítások és a fejlesztés alatti noindex eltávolítása.

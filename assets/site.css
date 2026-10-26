@@ -212,3 +212,5 @@ body[data-typography] .site-footer .footer-title{font:500 var(--type-subtitle)/1
 .about-intro>div,.contact-hero>div{animation:arrive .8s ease both}
 .about-intro>figure,.contact-hero>figure{animation:arrive 1.2s ease both}
 @media(prefers-reduced-motion:reduce){.about-intro>div,.contact-hero>div,.about-intro>figure,.contact-hero>figure{animation:none!important}}
+
+.privacy-policy{max-width:760px;margin-inline:auto}.privacy-policy h1{margin-bottom:24px}.privacy-policy h2{margin-top:48px;scroll-margin-top:32px}.privacy-policy p,.privacy-policy li{max-width:680px}.privacy-policy ul{padding-left:24px;margin:24px 0}.privacy-policy li+li{margin-top:12px}.privacy-policy a{text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}.privacy-policy a:hover{color:#4F6045}.privacy-policy strong{font-weight:600}.policy-toc{margin:32px 0;padding:24px;border:1px solid #40302B33;border-radius:12px;background:#FBF9F6}.privacy-policy .policy-toc h2{margin-top:0}.policy-toc ul{margin-bottom:0}.privacy-policy{overflow-wrap:anywhere}@media(max-width:720px){.privacy-policy h2{margin-top:32px}.policy-toc{padding:24px}}
