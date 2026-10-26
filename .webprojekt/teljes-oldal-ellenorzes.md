@@ -51,3 +51,7 @@ Mind a négy főoldalon Chrome DOM-ellenőrzés: nincs aláhúzott menü/CTA/lá
 ## Adatvédelmi jelölőnégyzet és új lábléc
 
 Minden aktív oldali űrlaphoz required privacy_consent checkbox, tájékoztatólink, magyar natív és helyben olvasható hibaüzenet került. A főoldalon két űrlaphoz két egyedi azonosító tartozik; a letiltott kisokos űrlapja továbbra is letiltott. Chrome-próba: kitöltött űrlap jelölés nélkül nem jut a submit visszajelzésig, a hiba megjelenik; kipipálva eltűnik és a még be nem kötött űrlap valós állapotjelzése jelenik meg. Nem történt valódi adatküldés. Mind az öt generált oldalon azonos négyoszlopos lábléc; Rólunk link ellenőrizve. Mobil 375 px: egy oszlop, nincs kilógás. A footer képernyőképpel ellenőrizve. A közösségi ikonok egyelőre nem linkek, mert a profilcímek hiányoznak. Nyitvatartás a briefből (9–16), nem a referenciaképből került átvételre. Az adatkezelési tájékoztató továbbra is előkészítés alatti helyőrző.
+
+## Ikonok, kisokos és GYIK
+
+Hat egységes, 24 px-es, 1,6 px vonalvastagságú SVG-ikon váltotta a lábléc szöveges jeleit. A közösségi kiegészítő szöveg eltávolítva. Lábléc törzs 16/25,6 px Montserrat; címek a design system alcímskáláján. A főoldali kisokos mezői és kötelező adatvédelmi jelölése kitölthető, beküldéskor őszinte helyi állapotüzenet jelenik meg; hálózati feliratkozás nincs. Chrome-ban a név/e-mail/jelölés és a gomb kipróbálva. Alapállapotban nyitott GYIK-kérdések száma nulla, a közös sablon minden újrageneráláskor ezt adja. Lábléc képernyőképpel ellenőrizve.

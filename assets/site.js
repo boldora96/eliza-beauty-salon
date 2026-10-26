@@ -89,3 +89,6 @@ document.querySelectorAll('form').forEach((form,formIndex)=>{
     if(invalid.length){event.preventDefault();event.stopImmediatePropagation();const status=form.querySelector('.form-status');if(status)status.textContent='';invalid[0].focus();invalid[0].scrollIntoView({block:'nearest',behavior:'auto'});}
   },true);
 });
+
+// A kisokos űrlapja kipróbálható, valódi feliratkozás nélkül.
+document.querySelectorAll('.newsletter form').forEach(form=>form.addEventListener('submit',event=>{event.preventDefault();form.querySelector('.form-status').textContent='A feliratkozás még nincs bekötve; az adataidat nem továbbítottuk, és a kisokos letöltése még nem elérhető.';}));
