@@ -24,7 +24,7 @@ if(galleryDialog && galleryImages.length){
 }
 
 // A statisztikák csak az első megjelenéskor számolnak fel.
-const statisticNumbers = [...document.querySelectorAll('.about-numbers .trust-number')];
+const statisticNumbers = [...document.querySelectorAll('.about-numbers .trust-number, .stats strong')];
 if(statisticNumbers.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
   const statisticObserver = new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
