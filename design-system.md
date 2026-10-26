@@ -70,3 +70,12 @@ A desktop értékek a Figma arculati táblájából származnak; a mobilértéke
 A saját Figma-arculati táblában szereplő logót és favicont használjuk. A kurzuscsomag logo/ mappájának fájljai az eredeti arculathoz tartoznak; használat előtt ellenőrizni kell őket, nem tekinthetők automatikusan a saját logónak.
 
 A saját logó és favicon webes exportja még hátravan. SVG az elsődleges formátum; szükség szerint világos és sötét háttérhez külön változat készül. A saját logót ne helyettesítsük észrevétlenül más betűvel vagy az eredeti kurzuslogóval.
+
+## Jóváhagyott felhasználói finomítások
+
+- Másodlagos CTA: 0,5 px-es, 50%-os olívazöld keret, átlátszó háttér. Hover: mélybarna háttér és keret, krémszínű szöveg. A betű és belső térköz változatlan.
+- Fejléc- és láblécmenü, adatkezelési link, CTA-k: aláhúzás nélkül. A szöveges menülinkek hoverre olívazöldek; billentyűzetes fókusz megmarad.
+- A főoldali fotó feliratán 0,5 px-es, a képkerettel egyező áttetsző olívazöld keret.
+- Statisztikai számok: Playfair Display 400, desktop 60 px, mobil 38 px, 1,3 sorköz. Az animált belső elem ezt örökli.
+- A kisokos gombja letiltva is teljes fedettségű olívazöld; a letiltott működés megmarad.
+- A lábléc növényi dísze elhagyva.

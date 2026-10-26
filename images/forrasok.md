@@ -17,3 +17,5 @@ A fotók felhasználása nem jelent személyes ajánlást. Eredeti, teljes felbo
 ## Figma Rólam oldal – átvett képek
 
 Szakmai kép: 38327:245. Szalongaléria sorrendben: 38204:1169, 38204:1170, 38204:1171, 38204:1174, 38204:1173, 38204:1175. Forrás: a felhasználó Figma-terve, NyCB6ZFimSUEeA0Ak5AUMQ. Helyi WebP-exportok, legfeljebb 1000 px, 85-ös minőség. Az eredeti képek eredete/jogosultsága a Figma-átvétellel nem került külön ellenőrzésre.
+
+Bemutatkozó portré: felhasználói Figma-terv 38204:1123, eliza-tortenet.webp, ideiglenes kép a végleges képkiválasztásig.

@@ -43,3 +43,7 @@ További designjavaslatok: saját Eliza-portré, végleges logó és favicon; hi
 A felhasználó visszajelzése alapján a Rólunk oldal négy részre egyszerűsödött: személyes bemutatkozás egy képpel, szakmai blokkok kompakt számsávval, hatképes galéria, időpontkérés. A külön ismételt történet és felhívás kikerült. A térközök desktopon 64 px, mobilon 48 px szakaszritmust követnek; a design system betűi és méretskálája maradtak. A képek ideiglenesek, végleges kiválasztásuk későbbi feladat.
 
 A galéria hat képe gombként megnyitja a natív dialógust. Következő kép, képaláírás, Escape-es bezárás és görgetés feloldása Chrome-ban sikeresen tesztelve. A natív dialógus kezeli a fókuszt. 376 px tényleges mobilnézetben nincs kilógás, H1 38 px, a galéria egy oszlop. A szerkezeti ellenőrzés sikeres. A képernyőképezés továbbra is böngészőhibába futott, ezért teljes vizuális auditot ebben a körben sem állítunk.
+
+## Kilenc felhasználói finomítás
+
+Mind a négy főoldalon Chrome DOM-ellenőrzés: nincs aláhúzott menü/CTA/lábléclink, nincs lábléc-levélke vagy vízszintes kilógás. Kisokos gomb háttér rgb(79,96,69), opacity 1, továbbra is letiltva. A főoldali animált számok külső és belső elemének mért mérete egyaránt 60 px. Az új bemutatkozó rész a Rólunk hero után, a 38204:1122 Figma-szakasz alapján, eredeti ideiglenes portréval. A közös hover-szabályok a felhasználó kérése szerint felülírják a korábbi másodlagos CTA-állapotot; dokumentálva a design systemben. Képernyőkép a Chrome skálázási/rögzítési hibája miatt nem készült.

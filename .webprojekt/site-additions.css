@@ -142,3 +142,16 @@ body[data-typography] .stats strong{font-variant-numeric:lining-nums tabular-num
 /* CTA: egyetlen, 1 px-es keret alap- és hoverállapotban is. */
 body[data-typography] .button,body[data-typography] .button:hover{box-shadow:none;border-width:1px;font-synthesis:none}
 body[data-typography] .button.secondary:hover{box-shadow:none;background:transparent;border-color:#4F6045;color:#4F6045}
+
+/* Felhasználói finomítás: könnyed keretek, egységes állapotok. */
+body[data-typography] .nav a,body[data-typography] .nav a:hover,body[data-typography] .nav [aria-current=page],body[data-typography] footer a,body[data-typography] footer a:hover,body[data-typography] .button,body[data-typography] .button:hover{text-decoration:none}
+body[data-typography] .nav a:not(.button):hover,body[data-typography] footer a:hover{color:#4F6045}
+body[data-typography] .button.secondary{border:0.5px solid #4f604580;box-shadow:none;background:transparent;color:#4F6045}
+body[data-typography] .button.secondary:hover{border:0.5px solid #40302B;background:#40302B;color:#F8F5F0;box-shadow:none;text-decoration:none}
+body[data-typography] .photo-note{border:0.5px solid #4f604559;background:#FBF9F6;border-radius:4px}
+body[data-typography] .stats strong,body[data-typography] .about-numbers .trust-number{font:400 var(--type-h1)/1.3 'Playfair Display',Georgia,serif;font-variant-numeric:lining-nums tabular-nums;color:#4F6045}
+body[data-typography] .newsletter button.button:disabled{opacity:1;background:#4F6045;color:#FBF9F6;border-color:#4F6045}
+.personal-story-section{padding:64px 0}.personal-story{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}.personal-story figure{margin:0;overflow:hidden;border-radius:20px}.personal-story img{height:590px;object-fit:cover;object-position:80% center}.story-eyebrow{color:#40302B}
+@media(max-width:900px){.personal-story{gap:32px}.personal-story img{height:500px}}
+@media(max-width:720px){.personal-story-section{padding:48px 0}.personal-story{grid-template-columns:1fr;gap:32px}.personal-story img{height:360px}.about-numbers>div{flex-wrap:wrap}}
+body[data-typography] .stats strong>span,body[data-typography] .about-numbers .trust-number>span{font:inherit;color:inherit}
