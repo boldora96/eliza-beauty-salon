@@ -1,6 +1,6 @@
 # Brand brief
 
-Állapot: jóváhagyásra váró tervezet. Beadási határidő: 2026. november 3.
+Állapot: a felhasználó jóváhagyta 2026. október 26-án. Beadási határidő: 2026. november 3.
 
 ## Források és megvalósítási elv
 
@@ -124,3 +124,4 @@ Nincs tervezett további oldal. Blog, webshop, fizetés, vendégfiók és automa
 - A 90+ mobilos PageSpeed opcionális cél, nem előre garantált eredmény.
 - Beadandó: Netlify-link, GitHub-repólink (privát repónál értékelői hozzáférés szükséges lehet), 5–10 mondatos saját összehasonlítás a Figma-tervvel.
 - A tényleges időráfordítást és a tapasztalatokat a felhasználó rögzíti; ezeket nem becsüljük vissza kitalált adatokkal.
+
