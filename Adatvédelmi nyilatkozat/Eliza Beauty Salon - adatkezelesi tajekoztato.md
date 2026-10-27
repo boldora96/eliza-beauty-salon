@@ -3,7 +3,7 @@
 Eliza Beauty Salon – adatvédelmi nyilatkozat
 
 **Létrehozás dátuma:** 2026. október 26.
-**Utolsó módosítás:** 2026. október 26.
+**Utolsó módosítás:** 2026. október 27.
 **Állapot:** a házi feladathoz készülő weboldal jelenlegi tesztváltozatára igazított tájékoztató. A végleges webcím, vállalkozói adatok, szolgáltatók és adatmegőrzési idők az élesítés előtt kiegészítendők.
 
 ## 1. Az adatkezelő és elérhetőségei
@@ -38,15 +38,15 @@ A telefonos vagy közvetlen e-mailes megkeresés nem a webes próbaűrlapon kere
 
 ## 4. Arcápolási Kisokos és hírlevél
 
-A főoldali feliratkozó űrlap a nevet, az e-mail-címet, a hozzájárulásokat, a hozzájárulási szöveg verzióját és a böngésző által rögzített beküldési időpontot a Netlify Forms rendszerébe továbbítja. A feliratkozási kérelmek külön, arcapolasi-kisokos néven jelennek meg. Sikeres beküldés után az Arcápolási Kisokos PDF formátumban letölthető. A feliratkozónak küldött automatikus e-mail technikai előkészítése megtörtént, de a Brevo-fiók és az igazolt feladó beállításáig nem aktív. Az üzemeltető a Netlify e-mail-értesítéseiből értesül az új beküldésekről.
+A főoldali feliratkozó űrlap a nevet, az e-mail-címet, a hozzájárulásokat, a hozzájárulási szöveg verzióját és a böngésző által rögzített beküldési időpontot a Netlify Forms rendszerébe továbbítja. A feliratkozási kérelmek külön, arcapolasi-kisokos néven jelennek meg. Sikeres beküldés után az Arcápolási Kisokos PDF formátumban letölthető. A feliratkozást követően a Netlify eseményfüggvénye a megadott nevet és e-mail-címet a Brevo e-mail-küldő szolgáltatásának továbbítja az igényelt Kisokos kézbesítéséhez. A feliratkozó névre szóló e-mailt kap a PDF-melléklettel és a letöltési hivatkozással. Az üzemeltető a Netlify e-mail-értesítéseiből értesül az új beküldésekről.
 
-A későbbi kisokos-kézbesítés és rendszeres hírlevélküldés célját külön, egyértelműen meg kell határozni. Hírlevelet kizárólag az ehhez adott, önkéntes és megfelelően dokumentált hozzájárulás alapján szabad küldeni; a tájékoztató elfogadására szolgáló jelölés nem helyettesíti a külön hírlevél-hozzájárulást. A hírlevél-szolgáltató és az adatmegőrzési szabályok még nincsenek kiválasztva.
+A Kisokos kézbesítése az űrlapon leadott kérés teljesítését szolgálja. A későbbi rendszeres hírlevélküldés célját külön, egyértelműen meg kell határozni. Hírlevelet kizárólag az ehhez adott, önkéntes és megfelelően dokumentált hozzájárulás alapján szabad küldeni; a tájékoztató elfogadására szolgáló jelölés nem helyettesíti a külön hírlevél-hozzájárulást. Az automatikus Kisokos-kézbesítés szolgáltatója a Brevo; az adatmegőrzési szabályok és a későbbi rendszeres hírlevélküldés beállításai még véglegesítendők.
 
 A tényleges hírlevél indítása előtt biztosítani kell az egyszerű, ingyenes visszavonási és leiratkozási lehetőséget. A hozzájárulás visszavonása a korábbi, jogszerű adatkezelés jogszerűségét nem érinti.
 
 ## 5. Tárhely és külső szolgáltatások
 
-**Tárhely és űrlap:** a bemutató a https://elizabeautysalon.netlify.app/ címen, a Netlify tárhelyén működik. Az időpontkérő üzenetek fogadását és tárolását a Netlify Forms végzi. Az üzemeltetőnek az éles vállalkozási működéshez rögzítenie kell a szolgáltató adatfeldolgozási és adattovábbítási feltételeit. Külön e-mail-küldő szolgáltatás nincs bekötve. További információ: [Netlify adatvédelmi tájékoztató](https://www.netlify.com/privacy/).
+**Tárhely és űrlap:** a bemutató a https://elizabeautysalon.netlify.app/ címen, a Netlify tárhelyén működik. Az időpontkérő üzenetek fogadását és tárolását a Netlify Forms végzi. Az üzemeltetőnek az éles vállalkozási működéshez rögzítenie kell a szolgáltató adatfeldolgozási és adattovábbítási feltételeit. A Kisokos kézbesítéséhez a Brevo szolgáltatása kapcsolódik. A név és az e-mail-cím a levél elkészítéséhez és továbbításához kerül a Brevóhoz; a szolgáltatás kézbesítési naplókat is vezet. További információ: [Brevo adatvédelmi tájékoztató](https://www.brevo.com/legal/privacypolicy/). További információ: [Netlify adatvédelmi tájékoztató](https://www.netlify.com/privacy/).
 
 **Betűtípusok:** az oldal a betűtípusokat a saját tárhelyéről tölti le. A betűtípusok megjelenítéséhez nem kapcsolódik a Google Fonts kiszolgálóihoz.
 

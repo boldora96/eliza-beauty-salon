@@ -8,7 +8,7 @@ A publikálható fájlok a `public/` mappában találhatók: öt végleges oldal
 
 Újragenerálás: `node .webprojekt/build-site.cjs` majd `node .webprojekt/prepare-public.cjs`. A `public/` generált kimenet: ne szerkeszd kézzel. A forrásokat a gyökérmappában és a `.webprojekt/` alatt kell módosítani. A `netlify.toml` automatikusan beállítja a build parancsot és a `public` publish directory értéket. Kézi feltöltésnél csak a `public/` mappát kell átadni a Netlifynak.
 
-A publikált oldalak indexelése engedélyezett (index,follow). Az időpontkérő űrlapok a Netlify Formsba küldik az üzeneteket, és sikeres küldés után popupot mutatnak. A kisokos-feliratkozás külön Netlify Forms űrlapba érkezik, sikeres popup visszajelzéssel. A háromoldalas Kisokos a sikeres feliratkozás után letölthető. Az automatikus e-mail-küldés előkészítve, Brevo-fiók és igazolt feladó beállítására vár.
+A publikált oldalak indexelése engedélyezett (index,follow). Az időpontkérő űrlapok a Netlify Formsba küldik az üzeneteket, és sikeres küldés után popupot mutatnak. A kisokos-feliratkozás külön Netlify Forms űrlapba érkezik, sikeres popup visszajelzéssel. A háromoldalas Kisokos a sikeres feliratkozás után letölthető. Az automatikus Kisokos-küldés a Brevón keresztül aktív és valódi beérkezett levéllel tesztelve.
 
 A kiválasztott Csendes szalon irányra épülő, négyoldalas statikus weboldal, saját olívazöld arculattal.
 
@@ -42,7 +42,7 @@ Asztali és 375 px mobilnézetben Chrome-ban ellenőrizve: tipográfia, képek, 
 
 ## Élesítés előtt hátravan
 
-- Az időpontkérő űrlap Netlify Forms fogadása és sikeres popupja működik; egy technikai próbaüzenet ellenőrzött beküldésként megjelent a Netlifyban. A beküldő automatikus e-mail-visszaigazolásához még levélküldő szolgáltatás és feladó beállítása szükséges. A kisokos űrlapja a Netlify Formsba továbbítja a feliratkozási kérelmeket; Sikeres beküldés után a háromoldalas PDF letölthető.
+- Az időpontkérő űrlap Netlify Forms fogadása és sikeres popupja működik; egy technikai próbaüzenet ellenőrzött beküldésként megjelent a Netlifyban. Az időpontkérő űrlap beküldőjének automatikus e-mail-visszaigazolása még nincs bekötve; a Brevo jelenleg kizárólag a Kisokos kézbesítését végzi. A kisokos űrlapja a Netlify Formsba továbbítja a feliratkozási kérelmeket; Sikeres beküldés után a háromoldalas PDF letölthető.
 - Az elkészült, személyre szabott adatkezelési tájékoztató véglegesítése a hiányzó vállalkozói adatokkal, éles szolgáltatókkal és megőrzési időkkel.
 - Saját végleges logó és favicon exportja.
 - A briefben szereplő fiktív elérhetőségek véglegesítése; a stock képek illusztrációk.
@@ -56,7 +56,10 @@ A négy arculati betűtípus helyben tárolt, magyar karaktereket tartalmazó WO
 
 ## Kisokos-feliratkozás – 2026. október 27.
 
-Netlify Forms név: arcapolasi-kisokos. Kötelező mezők: név, e-mail, adatvédelmi jelölés és külön e-mail-fogadási hozzájárulás. A beküldés böngészőoldali időpontja és a hozzájárulási szöveg verziója is továbbítódik. A sikeres popup csak sikeres szerverválasz után jelenik meg; hibánál megmaradnak a kitöltött adatok. A technikai próba „Kisokos technikai teszt 20261027” néven megjelent a Netlify kezelőfelületén. A Kisokos PDF elkészült. A Brevo automatikus kézbesítési integrációja előkészítve, de fiók/API-kulcs/igazolt feladó nélkül még inaktív.
+Netlify Forms név: arcapolasi-kisokos. Kötelező mezők: név, e-mail, adatvédelmi jelölés és külön e-mail-fogadási hozzájárulás. A beküldés böngészőoldali időpontja és a hozzájárulási szöveg verziója is továbbítódik. A sikeres popup csak sikeres szerverválasz után jelenik meg; hibánál megmaradnak a kitöltött adatok. A technikai próba „Kisokos technikai teszt 20261027” néven megjelent a Netlify kezelőfelületén. A Kisokos PDF elkészült. A Brevo automatikus Kisokos-kézbesítése aktív. A kulcs Netlify Secret, kizárólag a Production kontextusban, a Brevóban csak tranzakciós e-mail-hozzáféréssel; a repó nem tartalmaz kulcsot.
 
 
 A PDF végleges példánya: output/pdf/Eliza Beauty Salon - Arcapolasi Kisokos.pdf. Webes letöltés: downloads/eliza-arcapolasi-kisokos.pdf. Generáló forrás: .webprojekt/create-kisokos.py, a hozzátartozó fontok a .webprojekt/pdf-fonts mappában. Licencük: assets/fonts/*-OFL.txt. A tulajdonosi értesítés a Netlifyban minden formra beállítva; a cím boldora96@gmail.com. Aktiválási lépések: .webprojekt/kisokos-email.md.
+
+
+2026. október 27. 22:54: a valós próba-feliratkozás után a névre szóló Kisokos-levél megérkezett a tesztpostaládába, PDF-melléklettel és letöltőlinkkel. A melléklet háromoldalas, SHA-256 alapján egyezik a publikált PDF-fel. A Netlify tulajdonosi értesítése is megérkezett. Az igazolt feladócím boldora96@gmail.com; saját hitelesített domain hiányában a Brevo a kézbesítésnél saját brevosend.com feladócímét alkalmazza, Eliza Beauty Salon megjelenített névvel. Ez az időpontkérő űrlap automatikus visszaigazoló levelezését nem módosítja.
