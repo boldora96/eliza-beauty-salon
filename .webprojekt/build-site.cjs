@@ -34,7 +34,7 @@ const benefitCopy = homePart('Előnyök');
 sections[3] = wrap(intro(value(benefitCopy, 'Cím'), value(benefitCopy, 'Szöveg')) + '<div class="benefits">' + ['Bőrtípushoz igazodok', 'Fájdalommentes kezelések', 'Elégedettségi garancia', 'Exkluzív környezet'].map(title => `<article class="benefit"><span class="leaf" aria-hidden="true"></span><div><h3>${esc(title)}</h3>${p(value(benefitCopy, title))}</div></article>`).join('') + '</div>');
 const processCopy = homePart('Folyamat');
 sections[4] = wrap(`<h2>${esc(value(processCopy, 'Cím'))}</h2><div class="process-grid">${['Időpont-egyeztetés', 'Diagnosztika és kezelési terv', 'Kozmetikai kezelés', 'Tanácsok otthonra'].map((title, i) => `<article><span class="step-number">0${i+1}</span><h3>${esc(title)}</h3>${p(value(processCopy, `${i+1}. ${title}`))}</article>`).join('')}</div>`, 'process');
-sections[5] = sections[5].replace('Vendégeim mondták', esc(value(homePart('Vélemények'), 'Kicker'))).replace('<p>A minőség mércéje: a visszatérő vendégek.</p>', '');
+sections[5] = sections[5].replace('class="section"', 'class="section testimonials" id="vendegvelemenyek"').replace('Vendégeim mondták', esc(value(homePart('Vélemények'), 'Kicker'))).replace('<p>A minőség mércéje: a visszatérő vendégek.</p>', '');
 sections[7] = sections[7].replace(/<p>[\s\S]*?<\/p>/, p(value(homePart('Hírlevél-feliratkozás'), 'Szöveg')));
 const previewServices = subsection(page('Kezelések'), 'Kezelések');
 let previewIndex = 0;
