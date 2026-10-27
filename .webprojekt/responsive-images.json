@@ -1,0 +1,411 @@
+{
+  "ragyogas": [
+    {
+      "file": "assets/images/ragyogas-400.webp",
+      "width": 400,
+      "bytes": 7528
+    },
+    {
+      "file": "assets/images/ragyogas-640.webp",
+      "width": 640,
+      "bytes": 14048
+    },
+    {
+      "file": "assets/images/ragyogas-960.webp",
+      "width": 960,
+      "bytes": 23966
+    },
+    {
+      "file": "assets/images/ragyogas-1280.webp",
+      "width": 1280,
+      "bytes": 34596
+    }
+  ],
+  "arcapolas": [
+    {
+      "file": "assets/images/arcapolas-400.webp",
+      "width": 400,
+      "bytes": 4700
+    },
+    {
+      "file": "assets/images/arcapolas-640.webp",
+      "width": 640,
+      "bytes": 9858
+    },
+    {
+      "file": "assets/images/arcapolas-960.webp",
+      "width": 960,
+      "bytes": 19752
+    },
+    {
+      "file": "assets/images/arcapolas-1280.webp",
+      "width": 1280,
+      "bytes": 29694
+    }
+  ],
+  "kezeles": [
+    {
+      "file": "assets/images/kezeles-400.webp",
+      "width": 400,
+      "bytes": 7922
+    },
+    {
+      "file": "assets/images/kezeles-640.webp",
+      "width": 640,
+      "bytes": 14880
+    },
+    {
+      "file": "assets/images/kezeles-960.webp",
+      "width": 960,
+      "bytes": 26004
+    },
+    {
+      "file": "assets/images/kezeles-1280.webp",
+      "width": 1280,
+      "bytes": 37158
+    }
+  ],
+  "arcmasszazs": [
+    {
+      "file": "assets/images/arcmasszazs-400.webp",
+      "width": 400,
+      "bytes": 13878
+    },
+    {
+      "file": "assets/images/arcmasszazs-640.webp",
+      "width": 640,
+      "bytes": 26482
+    },
+    {
+      "file": "assets/images/arcmasszazs-960.webp",
+      "width": 960,
+      "bytes": 42992
+    }
+  ],
+  "torodes": [
+    {
+      "file": "assets/images/torodes-400.webp",
+      "width": 400,
+      "bytes": 21772
+    },
+    {
+      "file": "assets/images/torodes-640.webp",
+      "width": 640,
+      "bytes": 41726
+    },
+    {
+      "file": "assets/images/torodes-960.webp",
+      "width": 960,
+      "bytes": 70260
+    }
+  ],
+  "eliza-tortenet": [
+    {
+      "file": "assets/images/eliza-tortenet-400.webp",
+      "width": 400,
+      "bytes": 33402
+    },
+    {
+      "file": "assets/images/eliza-tortenet-640.webp",
+      "width": 640,
+      "bytes": 68478
+    },
+    {
+      "file": "assets/images/eliza-tortenet-960.webp",
+      "width": 960,
+      "bytes": 115786
+    }
+  ],
+  "rolunk-hero": [
+    {
+      "file": "assets/images/rolunk-hero-400.webp",
+      "width": 400,
+      "bytes": 8268
+    },
+    {
+      "file": "assets/images/rolunk-hero-640.webp",
+      "width": 640,
+      "bytes": 14826
+    },
+    {
+      "file": "assets/images/rolunk-hero-960.webp",
+      "width": 960,
+      "bytes": 24046
+    },
+    {
+      "file": "assets/images/rolunk-hero-1280.webp",
+      "width": 1280,
+      "bytes": 33832
+    }
+  ],
+  "kapcsolat-hero": [
+    {
+      "file": "assets/images/kapcsolat-hero-400.webp",
+      "width": 400,
+      "bytes": 14368
+    },
+    {
+      "file": "assets/images/kapcsolat-hero-640.webp",
+      "width": 640,
+      "bytes": 28416
+    },
+    {
+      "file": "assets/images/kapcsolat-hero-960.webp",
+      "width": 960,
+      "bytes": 52318
+    },
+    {
+      "file": "assets/images/kapcsolat-hero-1280.webp",
+      "width": 1280,
+      "bytes": 77282
+    }
+  ],
+  "kezelesek-hero": [
+    {
+      "file": "assets/images/kezelesek-hero-400.webp",
+      "width": 400,
+      "bytes": 11750
+    },
+    {
+      "file": "assets/images/kezelesek-hero-640.webp",
+      "width": 640,
+      "bytes": 20766
+    },
+    {
+      "file": "assets/images/kezelesek-hero-960.webp",
+      "width": 960,
+      "bytes": 32904
+    }
+  ],
+  "kezelesek-belico": [
+    {
+      "file": "assets/images/kezelesek-belico-400.webp",
+      "width": 400,
+      "bytes": 3014
+    },
+    {
+      "file": "assets/images/kezelesek-belico-640.webp",
+      "width": 640,
+      "bytes": 5444
+    },
+    {
+      "file": "assets/images/kezelesek-belico-960.webp",
+      "width": 960,
+      "bytes": 9348
+    },
+    {
+      "file": "assets/images/kezelesek-belico-1280.webp",
+      "width": 1280,
+      "bytes": 13890
+    }
+  ],
+  "kezelesek-mesotica": [
+    {
+      "file": "assets/images/kezelesek-mesotica-400.webp",
+      "width": 400,
+      "bytes": 5710
+    },
+    {
+      "file": "assets/images/kezelesek-mesotica-640.webp",
+      "width": 640,
+      "bytes": 12066
+    },
+    {
+      "file": "assets/images/kezelesek-mesotica-960.webp",
+      "width": 960,
+      "bytes": 21026
+    }
+  ],
+  "kezelesek-tovabbi": [
+    {
+      "file": "assets/images/kezelesek-tovabbi-400.webp",
+      "width": 400,
+      "bytes": 17790
+    },
+    {
+      "file": "assets/images/kezelesek-tovabbi-640.webp",
+      "width": 640,
+      "bytes": 35714
+    },
+    {
+      "file": "assets/images/kezelesek-tovabbi-960.webp",
+      "width": 960,
+      "bytes": 65536
+    },
+    {
+      "file": "assets/images/kezelesek-tovabbi-1280.webp",
+      "width": 1280,
+      "bytes": 99814
+    }
+  ],
+  "kezelesek-vendeg-fruzsi": [
+    {
+      "file": "assets/images/kezelesek-vendeg-fruzsi-96.webp",
+      "width": 96,
+      "bytes": 2312
+    },
+    {
+      "file": "assets/images/kezelesek-vendeg-fruzsi-160.webp",
+      "width": 160,
+      "bytes": 4542
+    }
+  ],
+  "kezelesek-vendeg-magdi": [
+    {
+      "file": "assets/images/kezelesek-vendeg-magdi-96.webp",
+      "width": 96,
+      "bytes": 2032
+    },
+    {
+      "file": "assets/images/kezelesek-vendeg-magdi-160.webp",
+      "width": 160,
+      "bytes": 3922
+    }
+  ],
+  "vendeg-fruzsi": [
+    {
+      "file": "assets/images/vendeg-fruzsi-96.webp",
+      "width": 96,
+      "bytes": 520
+    },
+    {
+      "file": "assets/images/vendeg-fruzsi-160.webp",
+      "width": 160,
+      "bytes": 986
+    }
+  ],
+  "vendeg-magdi": [
+    {
+      "file": "assets/images/vendeg-magdi-96.webp",
+      "width": 96,
+      "bytes": 1910
+    },
+    {
+      "file": "assets/images/vendeg-magdi-160.webp",
+      "width": 160,
+      "bytes": 3818
+    }
+  ],
+  "szalon-1": [
+    {
+      "file": "assets/images/szalon-1-400.webp",
+      "width": 400,
+      "bytes": 12932
+    },
+    {
+      "file": "assets/images/szalon-1-640.webp",
+      "width": 640,
+      "bytes": 25722
+    },
+    {
+      "file": "assets/images/szalon-1-960.webp",
+      "width": 960,
+      "bytes": 45734
+    },
+    {
+      "file": "assets/images/szalon-1-1280.webp",
+      "width": 1280,
+      "bytes": 66556
+    }
+  ],
+  "szalon-2": [
+    {
+      "file": "assets/images/szalon-2-400.webp",
+      "width": 400,
+      "bytes": 17386
+    },
+    {
+      "file": "assets/images/szalon-2-640.webp",
+      "width": 640,
+      "bytes": 35664
+    },
+    {
+      "file": "assets/images/szalon-2-960.webp",
+      "width": 960,
+      "bytes": 65716
+    },
+    {
+      "file": "assets/images/szalon-2-1280.webp",
+      "width": 1280,
+      "bytes": 95590
+    }
+  ],
+  "szalon-3": [
+    {
+      "file": "assets/images/szalon-3-400.webp",
+      "width": 400,
+      "bytes": 8202
+    },
+    {
+      "file": "assets/images/szalon-3-640.webp",
+      "width": 640,
+      "bytes": 15554
+    },
+    {
+      "file": "assets/images/szalon-3-960.webp",
+      "width": 960,
+      "bytes": 24968
+    }
+  ],
+  "szalon-4": [
+    {
+      "file": "assets/images/szalon-4-400.webp",
+      "width": 400,
+      "bytes": 4264
+    },
+    {
+      "file": "assets/images/szalon-4-640.webp",
+      "width": 640,
+      "bytes": 8152
+    },
+    {
+      "file": "assets/images/szalon-4-960.webp",
+      "width": 960,
+      "bytes": 14676
+    },
+    {
+      "file": "assets/images/szalon-4-1280.webp",
+      "width": 1280,
+      "bytes": 21516
+    }
+  ],
+  "szalon-5": [
+    {
+      "file": "assets/images/szalon-5-400.webp",
+      "width": 400,
+      "bytes": 29736
+    },
+    {
+      "file": "assets/images/szalon-5-640.webp",
+      "width": 640,
+      "bytes": 65928
+    },
+    {
+      "file": "assets/images/szalon-5-960.webp",
+      "width": 960,
+      "bytes": 121600
+    },
+    {
+      "file": "assets/images/szalon-5-1280.webp",
+      "width": 1280,
+      "bytes": 180062
+    }
+  ],
+  "szalon-6": [
+    {
+      "file": "assets/images/szalon-6-400.webp",
+      "width": 400,
+      "bytes": 4790
+    },
+    {
+      "file": "assets/images/szalon-6-640.webp",
+      "width": 640,
+      "bytes": 9300
+    },
+    {
+      "file": "assets/images/szalon-6-960.webp",
+      "width": 960,
+      "bytes": 15964
+    }
+  ]
+}

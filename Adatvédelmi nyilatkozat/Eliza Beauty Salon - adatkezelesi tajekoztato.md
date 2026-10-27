@@ -48,7 +48,7 @@ A tényleges hírlevél indítása előtt biztosítani kell az egyszerű, ingyen
 
 **Tárhely és űrlap:** a bemutató a https://elizabeautysalon.netlify.app/ címen, a Netlify tárhelyén működik. Az időpontkérő üzenetek fogadását és tárolását a Netlify Forms végzi. Az üzemeltetőnek az éles vállalkozási működéshez rögzítenie kell a szolgáltató adatfeldolgozási és adattovábbítási feltételeit. Külön e-mail-küldő szolgáltatás nincs bekötve. További információ: [Netlify adatvédelmi tájékoztató](https://www.netlify.com/privacy/).
 
-**Google Fonts:** az oldal a betűtípusokat Google-kiszolgálókról tölti le. E hálózati kérés során a szolgáltatóhoz eljuthat az IP-cím és a kéréshez kapcsolódó technikai információ. A szolgáltató adatkezeléséről a [Google adatvédelmi tájékoztatója](https://policies.google.com/privacy?hl=hu) ad információt.
+**Betűtípusok:** az oldal a betűtípusokat a saját tárhelyéről tölti le. A betűtípusok megjelenítéséhez nem kapcsolódik a Google Fonts kiszolgálóihoz.
 
 **Google Térkép:** a Kapcsolat oldal beágyazott térképet tartalmaz. Betöltése kapcsolatot hoz létre a Google szolgáltatásával, amely technikai adatokat kaphat, és a saját működése szerint sütiket vagy más technológiákat alkalmazhat. A térkép külső oldalon is megnyitható. A [Google sütikkel kapcsolatos tájékoztatója](https://policies.google.com/technologies/cookies?hl=hu) részletezi ezeket a technológiákat.
 

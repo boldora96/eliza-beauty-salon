@@ -4,7 +4,7 @@ const root = path.resolve(__dirname, '..');
 const destination = path.join(root, 'public');
 const pages = ['index.html', 'kezelesek.html', 'rolunk.html', 'kapcsolat.html', 'adatkezeles.html'];
 const selected = new Set();
-const queue = [...pages, 'sitemap.xml', 'robots.txt'];
+const queue = [...pages, 'sitemap.xml', 'robots.txt', 'assets/site.css', ...fs.readdirSync(path.join(root,'assets/fonts')).filter(f=>f.endsWith('-OFL.txt')).map(f=>'assets/fonts/'+f)];
 function enqueue(reference, owner) {
   reference = reference.replace(/&amp;/g, '&');
   if (!reference || /^(?:https?:|data:|mailto:|tel:|#|\/\/)/i.test(reference)) return;
@@ -23,6 +23,7 @@ while (queue.length) {
   if (/\.(?:html|css|svg)$/.test(file)) {
     const source = fs.readFileSync(path.join(root, file), 'utf8');
     for (const match of source.matchAll(/(?:src|href)="([^"]+)"/g)) enqueue(match[1], file);
+    for (const match of source.matchAll(/srcset="([^"]+)"/g)) for (const candidate of match[1].split(',')) enqueue(candidate.trim().split(/\s+/)[0], file);
     for (const match of source.matchAll(/url\(\s*['"]?([^'"\)]+)['"]?\s*\)/g)) enqueue(match[1].trim(), file);
   }
 }

@@ -4,6 +4,7 @@ process.chdir(path.resolve(__dirname, '..'));
 const base = fs.readFileSync('.webprojekt/templates/csendes-base.html', 'utf8');
 const stockPhotos = require('./stock-kepek.json');
 const seoBasics = require('./seo-alapok.json');
+const responsiveImages = require('./responsive-images.json');
 const siteUrl = 'https://elizabeautysalon.netlify.app/';
 const canonicalUrl = file => new URL(file === 'index.html' || file === 'koncepcio-1-csendes-szalon.html' ? '' : file.replace(/\.html$/, ''), siteUrl).href;
 const md = fs.readFileSync('szovegek.md', 'utf8').replace(/\r/g, '');
@@ -44,8 +45,11 @@ sections[1] = sections[1].replace(/(<article class="service">[\s\S]*?<h3>)[\s\S]
 });
 let styles = [...base.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map(m => m[1]).join('\n');
 styles += fs.readFileSync('.webprojekt/site-additions.css', 'utf8');
+styles = fs.readFileSync('assets/fonts.css', 'utf8') + styles;
 fs.writeFileSync('assets/site.css', styles);
-const fonts = base.match(/<link href="https:\/\/fonts.googleapis.com[^>]+>/)[0] + '<link rel="icon" href="logo/favicon.svg" type="image/svg+xml"><link rel="icon" href="logo/favicon.png" type="image/png">';
+const fonts = '<link rel="preload" href="assets/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/playfair-display.woff2" as="font" type="font/woff2" crossorigin><link rel="icon" href="logo/favicon.svg" type="image/svg+xml"><link rel="icon" href="logo/favicon.png" type="image/png">';
+const inlineStyles = styles.replaceAll("url('fonts/", "url('assets/fonts/");
+
 let header = base.match(/<header>[\s\S]*?<\/header>/)[0];
 let footer = base.match(/<footer>[\s\S]*?<\/footer>/)[0];
 footer = footer.replace(/<span class="leaf" aria-hidden="true"><\/span>/g, '');
@@ -62,19 +66,24 @@ footer = footer.replace('⌖', footerIcon('<path d="M20 10c0 6-8 11-8 11S4 16 4 
   .replace('<span aria-label="Instagram">◎</span>', `<span role="img" aria-label="Instagram">${footerIcon('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/>')}</span>`)
   .replace('<span aria-label="YouTube">▶</span>', `<span role="img" aria-label="YouTube">${footerIcon('<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>')}</span>`)
   .replace('<p class="social-note">Közösségi linkjeink hamarosan elérhetők.</p>', '');
-const brandLogo = '<img class="brand-logo" src="logo/logo.svg" alt="Eliza Beauty Salon" width="376" height="206">';
+const brandLogo = '<img class="brand-logo" src="logo/logo.svg" alt="Eliza Beauty Salon" width="376" height="206" loading="eager" fetchpriority="high">';
 header = header.replace('ELIZA<small>BEAUTY SALON</small>', brandLogo);
-footer = footer.replace('ELIZA<small>BEAUTY SALON</small>', brandLogo);
+footer = footer.replace('ELIZA<small>BEAUTY SALON</small>', brandLogo.replace('loading="eager" fetchpriority="high"', 'loading="lazy"'));
 const contact = sections[8].replace('id="kapcsolat"', 'id="idopont"');
 const faq = sections[6];
 const processSection = sections[4];
 const testimonials = sections[5].split('<div class="guarantee">')[0] + '</div></section>';
 const render = (filename, title, description, content) => {
+  let photoIndex = 0;
   content = content.replace(/<img\b[^>]*>/g, tag => {
     const key = tag.match(/src="images\/([^"/]+)\.webp"/)?.[1];
     const item = stockPhotos[key];
     if (!item) return tag;
-    return tag.replace(/src="[^"]*"/, `src="${encodeURI(item.file)}"`)
+    const variants = responsiveImages[key] || [];
+    const sizes = key.includes('vendeg') ? '64px' : key.startsWith('szalon-') ? '(max-width: 1000px) calc((100vw - 64px) / 2), 404px' : ['arcapolas','kezeles','arcmasszazs'].includes(key) ? '(max-width: 650px) calc(100vw - 40px), (max-width: 1000px) calc((100vw - 112px) / 3), 399px' : '(max-width: 900px) calc(100vw - 40px), (max-width: 1340px) calc((100vw - 144px) / 2), 598px';
+    const srcset = variants.map(v => `${encodeURI(v.file)} ${v.width}w`).concat(`${encodeURI(item.file)} ${item.width}w`).join(', ');
+    if (photoIndex++ === 0) tag = tag.replace(/ loading="[^"]*"| fetchpriority="[^"]*"/g, '') .replace('<img', '<img loading="eager" fetchpriority="high"');
+    return tag.replace(/src="[^"]*"/, `src="${encodeURI(item.file)}" srcset="${srcset}" sizes="${sizes}"`)
       .replace(/alt="[^"]*"/, `alt="${tag.includes('class="guest-photo"') ? '' : esc(seoBasics.imageAlts[key] || item.alt)}"`)
       .replace(/width="\d+"/, `width="${item.width}"`).replace(/height="\d+"/, `height="${item.height}"`);
   });
@@ -105,7 +114,7 @@ const render = (filename, title, description, content) => {
     description = seoBasics.pages[current].description;
   }
   const activeHeader = header.replace(new RegExp(`href="${current.replace('.', '\\.')}"`, 'g'), `href="${current}" aria-current="page"`);
-  fs.writeFileSync(filename, `<!doctype html>\n<html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>${esc(title)} | Eliza Beauty Salon</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${canonicalUrl(filename)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>${fonts}<link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script></head><body data-typography="eliza"><a class="skip-link" href="#tartalom">Ugrás a tartalomhoz</a>${activeHeader}<main id="tartalom">${content}</main>${footer}</body></html>\n`);
+  fs.writeFileSync(filename, `<!doctype html>\n<html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><title>${esc(title)} | Eliza Beauty Salon</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${canonicalUrl(filename)}">${fonts}<style>${inlineStyles}</style><script src="assets/site.js" defer></script></head><body data-typography="eliza"><a class="skip-link" href="#tartalom">Ugrás a tartalomhoz</a>${activeHeader}<main id="tartalom">${content}</main>${footer}</body></html>\n`);
 };
 let home = sections.map((section, index) => index === 5 ? testimonials : section).join('\n').replace('id="kapcsolat"', 'id="idopont"');
 home = home.replace(/href="#kapcsolat"/g, 'href="#idopont"').replace('href="#kezelesek">Megnézem a kezeléseket', 'href="kezelesek.html">Megnézem a kezeléseket').replace('href="#idopont">Ismerkedjünk meg személyesen', 'href="rolunk.html">Ismerkedjünk meg személyesen');

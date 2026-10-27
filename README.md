@@ -8,7 +8,7 @@ A publikálható fájlok a `public/` mappában találhatók: öt végleges oldal
 
 Újragenerálás: `node .webprojekt/build-site.cjs` majd `node .webprojekt/prepare-public.cjs`. A `public/` generált kimenet: ne szerkeszd kézzel. A forrásokat a gyökérmappában és a `.webprojekt/` alatt kell módosítani. A `netlify.toml` automatikusan beállítja a build parancsot és a `public` publish directory értéket. Kézi feltöltésnél csak a `public/` mappát kell átadni a Netlifynak.
 
-A bemutató továbbra is noindex. Az időpontkérő űrlapok a Netlify Formsba küldik az üzeneteket, és sikeres küldés után popupot mutatnak. A kisokos-feliratkozás és az automatikus visszaigazoló e-mail még nincs bekötve.
+A publikált oldalak indexelése engedélyezett (index,follow). Az időpontkérő űrlapok a Netlify Formsba küldik az üzeneteket, és sikeres küldés után popupot mutatnak. A kisokos-feliratkozás és az automatikus visszaigazoló e-mail még nincs bekötve.
 
 A kiválasztott Csendes szalon irányra épülő, négyoldalas statikus weboldal, saját olívazöld arculattal.
 
@@ -46,6 +46,10 @@ Asztali és 375 px mobilnézetben Chrome-ban ellenőrizve: tipográfia, képek, 
 - Az elkészült, személyre szabott adatkezelési tájékoztató véglegesítése a hiányzó vállalkozói adatokkal, éles szolgáltatókkal és megőrzési időkkel.
 - Saját végleges logó és favicon exportja.
 - A briefben szereplő fiktív elérhetőségek véglegesítése; a stock képek illusztrációk.
-- Netlify-élesítés, végleges SEO-beállítások és a fejlesztés alatti noindex eltávolítása.
+- Opcionális közösségi előnézetek és strukturált adatok a végleges üzleti adatok alapján.
 
 A GitHub-repó privát. PageSpeed-mérés és teljes akadálymentességi audit még nem történt.
+
+## Teljesítményjavítás – 2026. október 27.
+
+A négy arculati betűtípus helyben tárolt, magyar karaktereket tartalmazó WOFF2; licenceik az assets/fonts mappában vannak. A stílusok közvetlenül a HTML-ben szerepelnek, így nem blokkol külön CSS- vagy Google Fonts-kérés. A kiválasztott eredeti WebP-fotók megmaradtak; a böngésző srcset/sizes alapján kisebb változatot tölthet le az assets/images mappából. A galéria nagyítása az eredeti fájlokat használja. A képváltozatok jegyzéke: .webprojekt/responsive-images.json. A Netlify beállításai gyorsítótárazási és alapvető biztonsági fejlécekkel egészültek ki.
