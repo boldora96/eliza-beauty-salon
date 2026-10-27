@@ -38,7 +38,7 @@ A telefonos vagy közvetlen e-mailes megkeresés nem a webes próbaűrlapon kere
 
 ## 4. Arcápolási Kisokos és hírlevél
 
-A főoldali feliratkozó űrlap a nevet, az e-mail-címet, a hozzájárulásokat, a hozzájárulási szöveg verzióját és a böngésző által rögzített beküldési időpontot a Netlify Forms rendszerébe továbbítja. A feliratkozási kérelmek külön, arcapolasi-kisokos néven jelennek meg. Automatikus e-mail-küldés és PDF-letöltés jelenleg nem történik.
+A főoldali feliratkozó űrlap a nevet, az e-mail-címet, a hozzájárulásokat, a hozzájárulási szöveg verzióját és a böngésző által rögzített beküldési időpontot a Netlify Forms rendszerébe továbbítja. A feliratkozási kérelmek külön, arcapolasi-kisokos néven jelennek meg. Sikeres beküldés után az Arcápolási Kisokos PDF formátumban letölthető. A feliratkozónak küldött automatikus e-mail technikai előkészítése megtörtént, de a Brevo-fiók és az igazolt feladó beállításáig nem aktív. Az üzemeltető a Netlify e-mail-értesítéseiből értesül az új beküldésekről.
 
 A későbbi kisokos-kézbesítés és rendszeres hírlevélküldés célját külön, egyértelműen meg kell határozni. Hírlevelet kizárólag az ehhez adott, önkéntes és megfelelően dokumentált hozzájárulás alapján szabad küldeni; a tájékoztató elfogadására szolgáló jelölés nem helyettesíti a külön hírlevél-hozzájárulást. A hírlevél-szolgáltató és az adatmegőrzési szabályok még nincsenek kiválasztva.
 
