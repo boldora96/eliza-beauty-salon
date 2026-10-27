@@ -91,7 +91,7 @@ const render = (filename, title, description, content) => {
     const id = `privacy-consent-${++formIndex}`;
     if (form.includes('id="contact-form"')) {
       form = form.replace('<form id="contact-form">', `<form id="contact-form" name="idopontkeres" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="idopontkeres"><input type="hidden" name="page" value="${filename}"><p hidden><label>Hagyd üresen: <input name="bot-field" autocomplete="off" tabindex="-1"></label></p>`)
-        .replace('Látványterv: az űrlap jelenleg nem küld üzenetet.', 'Az időpontot az üzeneted alapján, személyesen egyeztetjük vissza.');
+        .replace('<p class="note">Látványterv: az űrlap jelenleg nem küld üzenetet.</p>', '');
     }
     const unavailable = /<button[^>]*\bdisabled/.test(form);
     const consent = `<div class="privacy-consent"><label class="checkbox" for="${id}"><input type="checkbox" id="${id}" name="privacy_consent" value="accepted" required aria-describedby="${id}-error"${unavailable ? ' disabled' : ''}><span>Elolvastam és elfogadom az <a href="adatkezeles.html">adatvédelmi irányelveket</a>.</span></label><p class="consent-error" id="${id}-error" hidden>Az üzenet elküldéséhez kérjük, jelöld be, hogy elolvastad és elfogadod az adatvédelmi irányelveket.</p></div>`;
