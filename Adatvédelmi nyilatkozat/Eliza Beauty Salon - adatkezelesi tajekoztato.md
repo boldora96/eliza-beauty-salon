@@ -38,7 +38,7 @@ A telefonos vagy közvetlen e-mailes megkeresés nem a webes próbaűrlapon kere
 
 ## 4. Arcápolási Kisokos és hírlevél
 
-A főoldalon név és e-mail-cím megadására szolgáló feliratkozó felület látható. Jelenleg ez is csak helyi próba: nem hoz létre hírlevél-feliratkozást, nem küld e-mailt és nem indít PDF-letöltést.
+A főoldali feliratkozó űrlap a nevet, az e-mail-címet, a hozzájárulásokat, a hozzájárulási szöveg verzióját és a böngésző által rögzített beküldési időpontot a Netlify Forms rendszerébe továbbítja. A feliratkozási kérelmek külön, arcapolasi-kisokos néven jelennek meg. Automatikus e-mail-küldés és PDF-letöltés jelenleg nem történik.
 
 A későbbi kisokos-kézbesítés és rendszeres hírlevélküldés célját külön, egyértelműen meg kell határozni. Hírlevelet kizárólag az ehhez adott, önkéntes és megfelelően dokumentált hozzájárulás alapján szabad küldeni; a tájékoztató elfogadására szolgáló jelölés nem helyettesíti a külön hírlevél-hozzájárulást. A hírlevél-szolgáltató és az adatmegőrzési szabályok még nincsenek kiválasztva.
 
@@ -62,7 +62,7 @@ A beágyazott külső szolgáltatásokat külön vizsgálni kell az előző pont
 
 ## 7. Hozzáférés, megőrzés és adatbiztonság
 
-Az időpontkérő űrlap adatait a Netlify Forms tárolja, és a Netlify-projekt jogosult kezelői férhetnek hozzájuk. A konkrét megőrzési idő még véglegesítendő; az üzemeltetőnek gondoskodnia kell a beérkezett adatok rendszeres felülvizsgálatáról és a szükségtelenné vált üzenetek törléséről. A kisokos-feliratkozás továbbra sem továbbít vagy tárol adatot a szerveren.
+Az időpontkérő űrlap adatait a Netlify Forms tárolja, és a Netlify-projekt jogosult kezelői férhetnek hozzájuk. A konkrét megőrzési idő még véglegesítendő; az üzemeltetőnek gondoskodnia kell a beérkezett adatok rendszeres felülvizsgálatáról és a szükségtelenné vált üzenetek törléséről. A kisokos-feliratkozási kérelmeket szintén a Netlify Forms tárolja.
 
 Az éles rendszerben csak a feladatukhoz szükséges jogosultsággal rendelkezők férhetnek hozzá a kezelt adatokhoz. A tárhelyet, a hozzáférések védelmét, az adatátvitel biztonságát és az adatfeldolgozói feltételeket a választott szolgáltatásokhoz igazodva kell beállítani. Jelen dokumentum nem igazol még meg nem valósított biztonsági intézkedést.
 

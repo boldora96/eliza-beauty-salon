@@ -4,8 +4,9 @@ function closeMenu(){nav.classList.remove('open');menuButton.setAttribute('aria-
 menuButton?.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';nav.classList.toggle('open',open);menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'Bezárás':'Menü';});
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav?.classList.contains('open')){closeMenu();menuButton.focus();}});
-document.querySelectorAll('#contact-form').forEach(form=>{
-  const dialog=document.querySelector('#contact-success');
+document.querySelectorAll('#contact-form, #newsletter-form').forEach(form=>{
+  const newsletter=form.id==='newsletter-form';
+  const dialog=document.querySelector(newsletter?'#newsletter-success':'#contact-success');
   const button=form.querySelector('button[type="submit"]');
   const status=form.querySelector('.form-status');
   let sending=false;
@@ -14,6 +15,7 @@ document.querySelectorAll('#contact-form').forEach(form=>{
   form.addEventListener('submit',async event=>{
     event.preventDefault();
     if(sending || !form.checkValidity())return;
+    if(newsletter)form.elements.submitted_at.value=new Date().toISOString();
     sending=true;
     const originalText=button.textContent;
     button.disabled=true;button.textContent='Küldés…';form.setAttribute('aria-busy','true');
@@ -21,7 +23,7 @@ document.querySelectorAll('#contact-form').forEach(form=>{
     try {
       const response=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()});
       if(!response.ok)throw new Error('submission-failed');
-      form.reset();status.textContent='Üzeneted megérkezett. Hamarosan felveszem veled a kapcsolatot.';
+      form.reset();status.textContent=newsletter?'A feliratkozási kérésedet sikeresen rögzítettük.':'Üzeneted megérkezett. Hamarosan felveszem veled a kapcsolatot.';
       if(dialog)dialog.showModal();
     } catch {
       status.classList.add('submission-error');
@@ -96,6 +98,7 @@ document.querySelectorAll('form').forEach((form,formIndex)=>{
     ['input','change'].forEach(eventName=>field.addEventListener(eventName,()=>{if(!error.hidden)showError(field);}));
   });
   function messageFor(field){
+    if(field.name==='newsletter_consent'&&!field.checked)return 'A feliratkozáshoz kérjük, jelöld be, hogy hozzájárulsz az e-mailek fogadásához.';
     if(field.name==='privacy_consent'&&!field.checked)return 'Az üzenet elküldéséhez kérjük, jelöld be, hogy elolvastad és elfogadod az adatvédelmi irányelveket.';
     if(field.required && (field.type==='checkbox'?!field.checked:!field.value.trim())){
       if(field.type==='email')return 'Kérjük, add meg az e-mail-címedet, hogy válaszolni tudjunk.';
@@ -116,8 +119,7 @@ document.querySelectorAll('form').forEach((form,formIndex)=>{
   },true);
 });
 
-// A kisokos űrlapja kipróbálható, valódi feliratkozás nélkül.
-document.querySelectorAll('.newsletter form').forEach(form=>form.addEventListener('submit',event=>{event.preventDefault();form.querySelector('.form-status').textContent='A feliratkozás még nincs bekötve; az adataidat nem továbbítottuk, és a kisokos letöltése még nem elérhető.';}));
+
 
 // A kezeléshez tartozó CTA kitölti a témát, a többi mezőt érintetlenül hagyja.
 const contactTopic = document.querySelector('#contact-topic');

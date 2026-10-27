@@ -102,12 +102,17 @@ const render = (filename, title, description, content) => {
       form = form.replace('<form id="contact-form">', `<form id="contact-form" name="idopontkeres" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="idopontkeres"><input type="hidden" name="page" value="${filename}"><p hidden><label>Hagyd üresen: <input name="bot-field" autocomplete="off" tabindex="-1"></label></p>`)
         .replace('<p class="note">Látványterv: az űrlap jelenleg nem küld üzenetet.</p>', '');
     }
+    if (form.includes('aria-label="Kisokos feliratkozás"')) {
+      form = form.replace('<form aria-label="Kisokos feliratkozás">', `<form id="newsletter-form" name="arcapolasi-kisokos" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" aria-label="Kisokos feliratkozás"><input type="hidden" name="form-name" value="arcapolasi-kisokos"><input type="hidden" name="page" value="${filename}"><input type="hidden" name="submitted_at"><input type="hidden" name="consent_version" value="2026-10-27-v1"><p hidden><label>Hagyd üresen: <input name="bot-field" autocomplete="off" tabindex="-1"></label></p>`);
+    }
     const unavailable = /<button[^>]*\bdisabled/.test(form);
     const consent = `<div class="privacy-consent"><label class="checkbox" for="${id}"><input type="checkbox" id="${id}" name="privacy_consent" value="accepted" required aria-describedby="${id}-error"${unavailable ? ' disabled' : ''}><span>Elolvastam és elfogadom az <a href="adatkezeles.html">adatvédelmi irányelveket</a>.</span></label><p class="consent-error" id="${id}-error" hidden>Az üzenet elküldéséhez kérjük, jelöld be, hogy elolvastad és elfogadod az adatvédelmi irányelveket.</p></div>`;
     form = form.replace(/<label class="checkbox">[\s\S]*?<\/label>/g, '');
-    return form.replace(/<button\b/, consent + '<button');
+    const newsletterConsent = form.includes('id="newsletter-form"') ? '<div class="privacy-consent"><label class="checkbox" for="newsletter-consent"><input id="newsletter-consent" type="checkbox" name="newsletter_consent" value="accepted" required><span>Hozzájárulok az Arcápolási Kisokossal kapcsolatos e-mailek és az Eliza Beauty Salon hírleveleinek fogadásához.</span></label></div>' : '';
+    return form.replace(/<button\b/, consent + newsletterConsent + '<button');
   });
   if (content.includes('id="contact-form"')) content += '<dialog class="contact-success" id="contact-success" aria-labelledby="contact-success-title" aria-describedby="contact-success-description"><div class="contact-success-inner"><h2 id="contact-success-title">Köszönöm a megkeresésed!</h2><p id="contact-success-description">Üzeneted megérkezett. Hamarosan felveszem veled a kapcsolatot a megadott e-mail-címen. Az időpontot külön egyeztetjük.</p><button class="button" type="button" autofocus>Rendben</button></div></dialog>';
+  if (content.includes('id="newsletter-form"')) content += '<dialog class="contact-success" id="newsletter-success" aria-labelledby="newsletter-success-title"><div class="contact-success-inner"><h2 id="newsletter-success-title">Köszönöm a feliratkozásod!</h2><p>A feliratkozási kérésedet sikeresen rögzítettük.</p><button class="button" type="button" autofocus>Rendben</button></div></dialog>';
   const current = filename === 'koncepcio-1-csendes-szalon.html' ? 'index.html' : filename;
   if (seoBasics.pages[current]) {
     title = seoBasics.pages[current].title;
