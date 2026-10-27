@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-27",
+  "url": "https://elizabeautysalon.netlify.app/",
+  "tool": "Lighthouse 13.5.0",
+  "mode": "Helyi Chrome headless, élő Netlify URL, mobil emuláció és szimulált hálózati/CPU-lassítás; nem PageSpeed Insights távoli mérés.",
+  "before": {
+    "categories": {
+      "performance": 71,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 69
+    },
+    "FCP": 4433.503,
+    "LCP": 4433.503,
+    "CLS": 0
+  },
+  "mobile": {
+    "categories": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "FCP": 1020.079,
+    "LCP": 1840.079,
+    "CLS": 0.0006917422558499951
+  },
+  "desktop": {
+    "categories": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "FCP": 376.563,
+    "LCP": 409.563,
+    "CLS": 0.0032598980992126153
+  },
+  "checks": {
+    "brief": "45 cím és teljes szöveg egyezik",
+    "photos": "22 különböző eredeti WebP-fotó, reszponzív változatokkal",
+    "topicSelection": "4 űrlap, 9 célzott CTA, 7 témaválasztás",
+    "indexing": "index,follow",
+    "googleFontRequests": 0
+  }
+}
