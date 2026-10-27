@@ -8,7 +8,7 @@ A publikálható fájlok a `public/` mappában találhatók: öt végleges oldal
 
 Újragenerálás: `node .webprojekt/build-site.cjs` majd `node .webprojekt/prepare-public.cjs`. A `public/` generált kimenet: ne szerkeszd kézzel. A forrásokat a gyökérmappában és a `.webprojekt/` alatt kell módosítani. A `netlify.toml` automatikusan beállítja a build parancsot és a `public` publish directory értéket. Kézi feltöltésnél csak a `public/` mappát kell átadni a Netlifynak.
 
-A publikált oldalak indexelése engedélyezett (index,follow). Az időpontkérő űrlapok a Netlify Formsba küldik az üzeneteket, és sikeres küldés után popupot mutatnak. A kisokos-feliratkozás külön Netlify Forms űrlapba érkezik, sikeres popup visszajelzéssel. Automatikus e-mail-küldés és Kisokos PDF-letöltés nincs bekötve.
+A publikált oldalak indexelése engedélyezett (index,follow). Az időpontkérő űrlapok a Netlify Formsba küldik az üzeneteket, és sikeres küldés után popupot mutatnak. A kisokos-feliratkozás külön Netlify Forms űrlapba érkezik, sikeres popup visszajelzéssel. A háromoldalas Kisokos a sikeres feliratkozás után letölthető. Az automatikus e-mail-küldés előkészítve, Brevo-fiók és igazolt feladó beállítására vár.
 
 A kiválasztott Csendes szalon irányra épülő, négyoldalas statikus weboldal, saját olívazöld arculattal.
 
@@ -42,7 +42,7 @@ Asztali és 375 px mobilnézetben Chrome-ban ellenőrizve: tipográfia, képek, 
 
 ## Élesítés előtt hátravan
 
-- Az időpontkérő űrlap Netlify Forms fogadása és sikeres popupja működik; egy technikai próbaüzenet ellenőrzött beküldésként megjelent a Netlifyban. A beküldő automatikus e-mail-visszaigazolásához még levélküldő szolgáltatás és feladó beállítása szükséges. A kisokos űrlapja a Netlify Formsba továbbítja a feliratkozási kérelmeket; PDF-letöltés még nincs.
+- Az időpontkérő űrlap Netlify Forms fogadása és sikeres popupja működik; egy technikai próbaüzenet ellenőrzött beküldésként megjelent a Netlifyban. A beküldő automatikus e-mail-visszaigazolásához még levélküldő szolgáltatás és feladó beállítása szükséges. A kisokos űrlapja a Netlify Formsba továbbítja a feliratkozási kérelmeket; Sikeres beküldés után a háromoldalas PDF letölthető.
 - Az elkészült, személyre szabott adatkezelési tájékoztató véglegesítése a hiányzó vállalkozói adatokkal, éles szolgáltatókkal és megőrzési időkkel.
 - Saját végleges logó és favicon exportja.
 - A briefben szereplő fiktív elérhetőségek véglegesítése; a stock képek illusztrációk.
@@ -56,4 +56,7 @@ A négy arculati betűtípus helyben tárolt, magyar karaktereket tartalmazó WO
 
 ## Kisokos-feliratkozás – 2026. október 27.
 
-Netlify Forms név: arcapolasi-kisokos. Kötelező mezők: név, e-mail, adatvédelmi jelölés és külön e-mail-fogadási hozzájárulás. A beküldés böngészőoldali időpontja és a hozzájárulási szöveg verziója is továbbítódik. A sikeres popup csak sikeres szerverválasz után jelenik meg; hibánál megmaradnak a kitöltött adatok. A technikai próba „Kisokos technikai teszt 20261027” néven megjelent a Netlify kezelőfelületén. Nem hoztunk létre levelezőszolgáltatást vagy automatikus PDF-kézbesítést; a Kisokos fájl még hiányzik.
+Netlify Forms név: arcapolasi-kisokos. Kötelező mezők: név, e-mail, adatvédelmi jelölés és külön e-mail-fogadási hozzájárulás. A beküldés böngészőoldali időpontja és a hozzájárulási szöveg verziója is továbbítódik. A sikeres popup csak sikeres szerverválasz után jelenik meg; hibánál megmaradnak a kitöltött adatok. A technikai próba „Kisokos technikai teszt 20261027” néven megjelent a Netlify kezelőfelületén. A Kisokos PDF elkészült. A Brevo automatikus kézbesítési integrációja előkészítve, de fiók/API-kulcs/igazolt feladó nélkül még inaktív.
+
+
+A PDF végleges példánya: output/pdf/Eliza Beauty Salon - Arcapolasi Kisokos.pdf. Webes letöltés: downloads/eliza-arcapolasi-kisokos.pdf. Generáló forrás: .webprojekt/create-kisokos.py, a hozzátartozó fontok a .webprojekt/pdf-fonts mappában. Licencük: assets/fonts/*-OFL.txt. A tulajdonosi értesítés a Netlifyban minden formra beállítva; a cím boldora96@gmail.com. Aktiválási lépések: .webprojekt/kisokos-email.md.

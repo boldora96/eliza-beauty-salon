@@ -11,7 +11,7 @@ from pypdf import PdfReader
 
 ROOT=Path.cwd()
 for name in ['Body','BodyBold','Heading','Button','Subtitle']:
- pdfmetrics.registerFont(TTFont(name,str(ROOT/'.webprojekt/qa/pdf-fonts'/f'{name}.ttf')))
+ pdfmetrics.registerFont(TTFont(name,str(ROOT/'.webprojekt/pdf-fonts'/f'{name}.ttf')))
 W,H=A4; GREEN=HexColor('#4F6045'); BROWN=HexColor('#40302B'); CREAM=HexColor('#F8F5F0'); SURFACE=HexColor('#FBF9F6')
 output=ROOT/'output/pdf/Eliza Beauty Salon - Arcapolasi Kisokos.pdf'
 c=canvas.Canvas(str(output),pagesize=A4,pageCompression=1)
