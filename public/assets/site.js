@@ -19,7 +19,7 @@ document.querySelectorAll('#contact-form, #newsletter-form').forEach(form=>{
     sending=true;
     const originalText=button.textContent;
     button.disabled=true;button.textContent='Küldés…';form.setAttribute('aria-busy','true');
-    status.textContent='Az üzeneted küldése folyamatban…';status.classList.remove('submission-error');
+    status.textContent=newsletter?'A feliratkozásod rögzítése folyamatban…':'Az üzeneted küldése folyamatban…';status.classList.remove('submission-error');
     try {
       const response=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()});
       if(!response.ok)throw new Error('submission-failed');
