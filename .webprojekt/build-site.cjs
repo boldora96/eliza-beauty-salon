@@ -78,6 +78,14 @@ const render = (filename, title, description, content) => {
       .replace(/alt="[^"]*"/, `alt="${tag.includes('class="guest-photo"') ? '' : esc(seoBasics.imageAlts[key] || item.alt)}"`)
       .replace(/width="\d+"/, `width="${item.width}"`).replace(/height="\d+"/, `height="${item.height}"`);
   });
+  const topics = ['Időpontkérés', 'Belico arckezelések', 'Mesotica luxus kezelések', 'További egyedi kezelések', 'Anti-Age csomag', 'Anti-Age Plus csomag', 'Tini Anti-Akné csomag'];
+  content = content.replace(/<article class="(?:service|treatment-detail|package)"[\s\S]*?<\/article>/g, article => {
+    const title = article.match(/<h3>(.*?)<\/h3>/)?.[1];
+    const topic = title === 'További kezelések' ? 'További egyedi kezelések' : title;
+    if (!topics.includes(topic)) return article;
+    return article.replace(/<a class="button([^"]*)" href="[^"]*"/g, `<a class="button$1" href="#idopont" data-contact-topic="${esc(topic)}"`);
+  });
+  content = content.replace('<div class="form-field"><label for="contact-message">', `<div class="form-field"><label for="contact-topic">Mivel kapcsolatban érdeklődsz?</label><select id="contact-topic" name="topic" required>${topics.map(topic => `<option value="${esc(topic)}">${esc(topic)}</option>`).join('')}</select></div><div class="form-field"><label for="contact-message">`);
   let formIndex = 0;
   content = content.replace(/<form\b[\s\S]*?<\/form>/g, form => {
     const id = `privacy-consent-${++formIndex}`;

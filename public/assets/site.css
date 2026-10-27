@@ -228,3 +228,7 @@ body[data-typography] .site-footer .footer-title{font:500 var(--type-subtitle)/1
 header .brand-logo{display:block;width:144px;height:auto;object-fit:contain;border-radius:0}
 .site-footer .brand-logo{display:block;width:160px;height:auto;object-fit:contain;border-radius:0}
 @media(max-width:720px){header .brand-logo{width:120px}.site-footer .brand-logo{width:144px}}
+
+body[data-typography] select{display:block;width:100%;max-width:100%;min-height:44px;padding:16px 40px 16px 16px;background-color:#FBF9F6;color:#40302B;border:1px solid #40302B33;border-radius:4px;font-family:Montserrat,sans-serif;font-size:16px;line-height:1.6;cursor:pointer}
+body[data-typography] select:focus-visible{outline:2px solid #4F6045;outline-offset:2px}
+body[data-typography] .contact select:focus-visible{outline-color:#FBF9F6}

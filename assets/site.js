@@ -118,3 +118,21 @@ document.querySelectorAll('form').forEach((form,formIndex)=>{
 
 // A kisokos űrlapja kipróbálható, valódi feliratkozás nélkül.
 document.querySelectorAll('.newsletter form').forEach(form=>form.addEventListener('submit',event=>{event.preventDefault();form.querySelector('.form-status').textContent='A feliratkozás még nincs bekötve; az adataidat nem továbbítottuk, és a kisokos letöltése még nem elérhető.';}));
+
+// A kezeléshez tartozó CTA kitölti a témát, a többi mezőt érintetlenül hagyja.
+const contactTopic = document.querySelector('#contact-topic');
+function selectContactTopic(topic){
+  if(!contactTopic)return;
+  contactTopic.value=[...contactTopic.options].some(option=>option.value===topic)?topic:'Időpontkérés';
+  contactTopic.dispatchEvent(new Event('change',{bubbles:true}));
+}
+const requestedTopic = new URLSearchParams(window.location.search).get('tema');
+if(requestedTopic)selectContactTopic(requestedTopic);
+document.querySelectorAll('a[href]').forEach(link=>{
+  const target=new URL(link.getAttribute('href'),window.location.href);
+  if(target.origin!==window.location.origin || target.hash!=='#idopont')return;
+  const topic=link.dataset.contactTopic||'Időpontkérés';
+  const samePage=target.pathname.replace(/\/index\.html$/,'/').replace(/\.html$/,'')===window.location.pathname.replace(/\/index\.html$/,'/').replace(/\.html$/,'');
+  if(!samePage){target.searchParams.set('tema',topic);link.href=target.href;return;}
+  link.addEventListener('click',()=>selectContactTopic(topic));
+});
