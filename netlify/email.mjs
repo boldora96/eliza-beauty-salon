@@ -1,5 +1,6 @@
 import {createCipheriv,createDecipheriv,createHash,randomBytes} from 'node:crypto';
 export const SITE='https://elizabeautysalon.netlify.app';
+export const newsletterListId=()=>Number(process.env.BREVO_NEWSLETTER_LIST_ID||3);
 export const GUIDE_URL=SITE+'/downloads/eliza-arcapolasi-kisokos.pdf';
 export const safe=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const validEmail=value=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value||''));
@@ -44,6 +45,6 @@ export async function subscribe(data){
  let contact;
  try{contact=await brevo('/contacts/'+encodeURIComponent(data.email),{contacts:true});}catch(e){if(e.message!=='Brevo HTTP 404')throw e;}
  if(contact?.emailBlacklisted)return false;
- await brevo('/contacts',{method:'POST',contacts:true,body:{email:data.email,updateEnabled:true,attributes:{FIRSTNAME:String(data.name||'').slice(0,160)},...(process.env.BREVO_NEWSLETTER_LIST_ID?{listIds:[Number(process.env.BREVO_NEWSLETTER_LIST_ID)]}:{})}});
+ await brevo('/contacts',{method:'POST',contacts:true,body:{email:data.email,updateEnabled:true,attributes:{FIRSTNAME:String(data.name||'').slice(0,160)},listIds:[newsletterListId()]}});
  return true;
 }

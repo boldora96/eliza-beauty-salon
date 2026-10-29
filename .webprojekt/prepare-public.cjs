@@ -4,7 +4,7 @@ const root = path.resolve(__dirname, '..');
 const destination = path.join(root, 'public');
 const pages = ['index.html', 'kezelesek.html', 'rolunk.html', 'kapcsolat.html', 'adatkezeles.html'];
 const selected = new Set();
-const queue = [...pages, 'sitemap.xml', 'robots.txt', 'assets/site.css', ...fs.readdirSync(path.join(root,'assets/fonts')).filter(f=>f.endsWith('-OFL.txt')).map(f=>'assets/fonts/'+f)];
+const queue = [...pages, 'sitemap.xml', 'robots.txt', ...fs.readdirSync(path.join(root,'assets/fonts')).filter(f=>f.endsWith('-OFL.txt')).map(f=>'assets/fonts/'+f)];
 function enqueue(reference, owner) {
   reference = reference.replace(/&amp;/g, '&');
   if (!reference || /^(?:https?:|data:|mailto:|tel:|#|\/\/)/i.test(reference)) return;
@@ -30,6 +30,9 @@ while (queue.length) {
 function list(folder) {
   return fs.existsSync(folder) ? fs.readdirSync(folder, {withFileTypes:true}).flatMap(entry => entry.isDirectory() ? list(path.join(folder,entry.name)) : [path.relative(destination,path.join(folder,entry.name)).split(path.sep).join('/')]) : [];
 }
+// The CSS is embedded in the HTML, so its separate published copy is unused.
+const obsoleteCss = path.resolve(destination, 'assets/site.css');
+if (!selected.has('assets/site.css') && obsoleteCss.startsWith(destination + path.sep) && fs.existsSync(obsoleteCss)) fs.unlinkSync(obsoleteCss);
 const unexpected = list(destination).filter(file=>!selected.has(file));
 if (unexpected.length) throw Error('Nem várt fájl a public mappában: '+unexpected.join(', '));
 for (const file of selected) {

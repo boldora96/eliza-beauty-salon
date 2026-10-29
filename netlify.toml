@@ -1,6 +1,7 @@
 [build]
   command = "node .webprojekt/build-site.cjs && node .webprojekt/prepare-public.cjs"
   publish = "public"
+  ignore = "node .webprojekt/ignore-build.cjs"
 
 [[headers]]
   for = "/*"
@@ -21,3 +22,13 @@
     Cache-Control = "public, max-age=604800, must-revalidate"
 [build.environment]
   BREVO_NEWSLETTER_LIST_ID = "3"
+
+[[headers]]
+  for = "/downloads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/logo/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
