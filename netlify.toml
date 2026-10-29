@@ -19,3 +19,5 @@
   for = "/assets/images/*"
   [headers.values]
     Cache-Control = "public, max-age=604800, must-revalidate"
+[build.environment]
+  BREVO_NEWSLETTER_LIST_ID = "3"

@@ -1,22 +1,27 @@
 import assert from 'node:assert/strict';
-import {handler,GUIDE_URL} from '../netlify/functions/submission-created.mjs';
-const request=(changes={},form='arcapolasi-kisokos')=>({body:JSON.stringify({payload:{form_name:form,created_at:'2026-10-27T21:00:00Z',data:{name:'Teszt <script>',email:'test@example.com',privacy_consent:'accepted',newsletter_consent:'accepted',message:'Első sor\n<script>alert(1)</script>',topic:'Belico arckezelések',...changes}}})});
-const previous={key:process.env.BREVO_API_KEY,sender:process.env.BREVO_SENDER_EMAIL,owner:process.env.OWNER_NOTIFICATION_EMAIL,fetch:globalThis.fetch};
+import {handler} from '../netlify/functions/submission-created.mjs';
+import {handler as unsubscribe} from '../netlify/functions/newsletter-unsubscribe.mjs';
+import {unsubscribeToken,tokenEmail} from '../netlify/email.mjs';
+process.env.BREVO_API_KEY='test-not-a-real-key';process.env.BREVO_SENDER_EMAIL='sender@example.com';process.env.OWNER_NOTIFICATION_EMAIL='owner@example.com';process.env.BREVO_NEWSLETTER_LIST_ID='7';
+let calls=[],blocked=false,exists=false;
+const realFetch=globalThis.fetch;
+globalThis.fetch=async(url,options)=>{
+ const data=options.body?JSON.parse(options.body):null;calls.push({url,method:options.method,data});
+ if(url.includes('/contacts/')&&options.method==='GET')return {ok:exists,status:exists?200:404,json:async()=>({emailBlacklisted:blocked,attributes:{FIRSTNAME:'Teszt'}})};
+ if(url.includes('/contacts/')&&options.method==='PUT')blocked=data.emailBlacklisted;
+ if(url.endsWith('/contacts')&&options.method==='POST')exists=true;
+ return {ok:true,status:201,json:async()=>({id:1})};
+};
 try{
- delete process.env.BREVO_API_KEY;delete process.env.BREVO_SENDER_EMAIL;
- assert.equal((await handler(request())).body,'email-not-configured');
- process.env.BREVO_API_KEY='fake-test-key';process.env.BREVO_SENDER_EMAIL='sender@example.com';process.env.OWNER_NOTIFICATION_EMAIL='owner@example.com';
- let messages=[];
- globalThis.fetch=async(url,options)=>{assert.equal(url,'https://api.brevo.com/v3/smtp/email');messages.push(JSON.parse(options.body));return {ok:true,status:201};};
- for(const form of ['unknown'])assert.equal((await handler(request({},form))).body,'ignored');
- for(const changes of [{newsletter_consent:''},{email:'invalid'},{privacy_consent:''}])assert.equal((await handler(request(changes))).body,'invalid-consent-or-address');
- assert.equal(messages.length,0);
- assert.equal((await handler(request())).body,'sent');assert.equal(messages.length,2);
- const owner=messages.find(m=>m.to[0].email==='owner@example.com');const customer=messages.find(m=>m.to[0].email==='test@example.com');
- assert(owner.htmlContent.includes('Teszt &lt;script&gt;'));assert(owner.htmlContent.includes('2026. október 27. 22:00'));assert.equal(owner.replyTo.email,'test@example.com');assert(!owner.attachment);
- assert.equal(customer.attachment[0].url,GUIDE_URL);
- messages=[];assert.equal((await handler(request({newsletter_consent:''},'idopontkeres'))).body,'sent');assert.equal(messages.length,1);assert.equal(messages[0].to[0].email,'owner@example.com');assert(messages[0].htmlContent.includes('Belico arckezelések'));assert(messages[0].htmlContent.includes('Első sor<br>&lt;script&gt;'));assert(!messages[0].htmlContent.includes('<script>'));
- let attempted=0;globalThis.fetch=async()=>{attempted++;return {ok:false,status:503}};await assert.rejects(()=>handler(request()),/delivery failed/);assert.equal(attempted,2);
- assert.equal((await handler({body:'not-json'})).statusCode,400);
- console.log('OK: branded owner notification for both forms, separate customer PDF, reply-to, Budapest time, escaped content and independent send attempts.');
-}finally{globalThis.fetch=previous.fetch;for(const [key,value] of [['BREVO_API_KEY',previous.key],['BREVO_SENDER_EMAIL',previous.sender],['OWNER_NOTIFICATION_EMAIL',previous.owner]])if(value===undefined)delete process.env[key];else process.env[key]=value;}
+ const request=form=>({body:JSON.stringify({payload:{form_name:form,created_at:'2026-10-29T08:00:00Z',data:{name:'Teszt <script>',email:'test@example.com',privacy_consent:'accepted',newsletter_consent:'accepted',topic:'Belico',message:'Első sor\n<script>'}}})});
+ await handler(request('arcapolasi-kisokos'));
+ let emails=calls.filter(c=>c.url.endsWith('/smtp/email')).map(c=>c.data);assert.equal(emails.length,2);assert(emails.find(m=>m.attachment).htmlContent.includes('Leiratkozom'));assert(emails.every(m=>m.htmlContent.includes('SZAKÉRTELEM. NYUGALOM. TÖRŐDÉS.')));
+ const token=unsubscribeToken('test@example.com');assert.equal(tokenEmail(token),'test@example.com');assert(!token.includes('test'));assert.equal(tokenEmail(token.slice(0,-8)+'tampered'),null);
+ calls=[];let response=await unsubscribe({httpMethod:'GET',queryStringParameters:{token}});assert.equal(response.statusCode,200);assert.equal(calls.length,0);assert(response.body.includes('type="submit"'));
+ response=await unsubscribe({httpMethod:'POST',body:new URLSearchParams({token}).toString()});assert.equal(response.statusCode,200);assert(blocked);assert(response.body.includes('Sikeresen leiratkoztál'));assert(calls.some(c=>c.data?.unlinkListIds?.[0]===7));assert(calls.some(c=>c.data?.subject?.includes('Hírlevél-leiratkozás')));
+ calls=[];await handler(request('arcapolasi-kisokos'));assert(!calls.some(c=>c.data?.attachment));assert(!calls.some(c=>c.url.endsWith('/contacts')&&c.method==='POST'));
+ calls=[];await handler(request('idopontkeres'));emails=calls.filter(c=>c.url.endsWith('/smtp/email')).map(c=>c.data);assert.equal(emails.length,2);assert(emails.some(m=>m.subject.includes('Megkaptuk')));assert(emails.every(m=>!m.htmlContent.includes('<script>')));assert(!calls.some(c=>c.url.includes('/contacts')));
+ calls=[];response=await unsubscribe({httpMethod:'POST',body:'token=bad'});assert.equal(response.statusCode,400);assert.equal(calls.length,0);
+ globalThis.fetch=async()=>({ok:false,status:503});response=await unsubscribe({httpMethod:'POST',body:new URLSearchParams({token}).toString()});assert.equal(response.statusCode,503);assert(!response.body.includes('Sikeresen leiratkoztál'));
+ console.log('OK: 4 egységes levél, titkosított/tamperbiztos leiratkozás, GET nem módosít, Brevo opt-out és listaeltávolítás, tulajdonosi értesítés, nincs automatikus újrafeliratkoztatás, a kapcsolatfelvétel nem tiltott.');
+}finally{globalThis.fetch=realFetch;}

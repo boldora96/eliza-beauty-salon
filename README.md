@@ -63,3 +63,7 @@ A PDF végleges példánya: output/pdf/Eliza Beauty Salon - Arcapolasi Kisokos.p
 
 
 2026. október 27. 22:54: a valós próba-feliratkozás után a névre szóló Kisokos-levél megérkezett a tesztpostaládába, PDF-melléklettel és letöltőlinkkel. A melléklet háromoldalas, SHA-256 alapján egyezik a publikált PDF-fel. A Netlify tulajdonosi értesítése is megérkezett. Az igazolt feladócím boldora96@gmail.com; saját hitelesített domain hiányában a Brevo a kézbesítésnél saját brevosend.com feladócímét alkalmazza, Eliza Beauty Salon megjelenített névvel. Ez az időpontkérő űrlap automatikus visszaigazoló levelezését nem módosítja.
+
+## Egységes levelezés és leiratkozás
+
+2026. október 29-től mindkét űrlaphoz elkészült az ügyfél-visszaigazolás és a tulajdonosi értesítés közös arculati sablonja. A Kisokos-feliratkozókat a Brevo 3-as, Eliza – Arcápolási Kisokos listája kezeli. A leiratkozási link megerősítést követően megszünteti a Brevo hírlevél-jogosultságot, eltávolítja a listatagságot és tulajdonosi értesítést küld. Részletek és működési korlátok: `.webprojekt/kisokos-email.md`. A korábbi, csak Kisokos-kézbesítést említő állapotleírások történeti tesztadatok.

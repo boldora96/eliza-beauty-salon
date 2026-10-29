@@ -32,3 +32,13 @@ Források:
 - Éles teszt: Eliza kézbesítési próba 2026-10-27T21:53:59. A Netlify-függvény 22:54:02-kor sikeres szolgáltatói elfogadást naplózott, a levél 22:54-kor megérkezett a tesztpostaládába. A levélből letöltött PDF háromoldalas és SHA-256 szerint egyezik az eredetivel.
 - A Netlify-értesítés is megérkezett a tulajdonosi postaládába, a névvel, e-mail-címmel, beküldési idővel és hozzájárulásokkal.
 - Sem a kulcs, sem az ellenőrző kód nem kerül a repóba. A próba e-mailes és PDF-es bizonyítékai a figyelmen kívül hagyott .webprojekt/qa mappában vannak.
+## Levelezés és leiratkozás – 2026. október 29.
+
+- Mindkét űrlap ügyfél- és tulajdonosi levele közös, reszponzív olívazöld–krém sablont használ (`netlify/email.mjs`).
+- A kapcsolatfelvételi visszaigazolás tartalmazza a nevet, a témát, az üzenetet és a budapesti beküldési időpontot. Nem jelent hírlevél-feliratkozást.
+- A Kisokos-feliratkozás a Brevo „Eliza – Arcápolási Kisokos” listájába kerül (ID: 3; `BREVO_NEWSLETTER_LIST_ID`). A kulcs kontaktkezelési jogosultsága is szükséges; kizárólag szerveroldalon használható.
+- A Kisokos-levél személyes, AES-GCM-mel hitelesített/titkosított leiratkozási hivatkozást tartalmaz. Az URL nem tartalmaz olvasható e-mail-címet. A token kulcsa a szerveren tárolt küldési kulcsból származik; annak cseréje a régi linkeket érvényteleníti.
+- GET csak megerősítő oldalt mutat, hogy a levélbiztonsági szkennerek ne módosítsanak feliratkozást. POST: Brevo `emailBlacklisted=true`, eltávolítás a 3-as listáról, arculati tulajdonosi értesítés, majd sikeroldal. A tranzakciós tiltólistát nem módosítjuk, ezért a külön kért kapcsolatfelvételi levelek elérhetők maradnak.
+- Az újra beküldött űrlap nem oldja fel a korábbi leiratkozást. Újbóli feliratkozáshoz külön, igazolt hozzájárulási folyamat szükséges.
+- Hiba esetén nincs hamis sikerjelzés. Tulajdonosi levélhiba esetén a leiratkozás mentve marad, a látogató erről tájékoztatást kap; ismételt POST újrakísérli az értesítést (emiatt ismételt kattintással több értesítés érkezhet).
+- Az adatok eredeti Netlify Forms-beküldése megmarad mint előzmény; az aktuális hírlevél-jogosultság forrása a Brevo. A régi beküldéseket nem importáljuk automatikusan.
